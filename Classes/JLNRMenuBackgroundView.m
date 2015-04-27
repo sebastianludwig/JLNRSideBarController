@@ -10,6 +10,13 @@
 
 @implementation JLNRMenuBackgroundView
 
+- (void)setBorderColor:(UIColor *)borderColor
+{
+    _borderColor = borderColor;
+    
+    [self setNeedsDisplay];
+}
+
 - (void)drawRect:(CGRect)rect
 {
     UIColor *borderColor = (self.borderColor ?: [UIColor colorWithRed:178.f/255 green:178.f/255 blue:178.f/255 alpha:1]);
@@ -27,7 +34,6 @@
     else {
         CGContextFillRect(context, CGRectMake(size.width - borderWidth, 0, borderWidth, size.height));
     }
-
 }
 
 @end

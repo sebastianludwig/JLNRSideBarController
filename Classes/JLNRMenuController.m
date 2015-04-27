@@ -83,6 +83,7 @@
     
     _viewControllers = [viewControllers copy];
     [self.menuView reloadData];
+    // TODO - select and show first view controller
 }
 
 #pragma mark - Message forwarding to nested view controllers

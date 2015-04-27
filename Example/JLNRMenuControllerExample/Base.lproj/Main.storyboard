@@ -30,7 +30,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="MK9-9Z-L0P">
                                 <rect key="frame" x="0.0" y="484" width="320" height="64"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <state key="normal" title="Present Modally">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -84,45 +84,52 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JLNRViewController uses a tab bar at the bottom, or a side menu on iPhone 6 Plus and iPad when in landscape mode." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5cj-fa-V9v">
-                                <rect key="frame" x="16" y="80" width="288" height="311"/>
+                                <rect key="frame" x="16" y="80" width="288" height="226"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="Yio-9o-GJC">
-                                <rect key="frame" x="16" y="399" width="288" height="29"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" id="yxe-xQ-KaO">
+                                <rect key="frame" x="16" y="350" width="288" height="29"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <segments>
-                                    <segment title="nil bgColor"/>
+                                    <segment title="borderColor=nil"/>
                                     <segment title="custom"/>
                                     <segment title="UIAppearance"/>
                                 </segments>
                                 <connections>
-                                    <action selector="changeBackground:" destination="o0s-w7-rml" eventType="valueChanged" id="2EX-3u-Tuv"/>
+                                    <action selector="changeBorder:" destination="o0s-w7-rml" eventType="valueChanged" id="5lz-j1-Ic5"/>
                                 </connections>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" id="RkI-f6-PaA">
-                                <rect key="frame" x="16" y="471" width="288" height="29"/>
+                                <rect key="frame" x="16" y="386" width="288" height="29"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <segments>
-                                    <segment title="nil selectionIndicatorColor"/>
+                                    <segment title="selectionIndicatorColor=nil"/>
                                     <segment title="UIAppearance"/>
                                 </segments>
                                 <connections>
                                     <action selector="changeSelection:" destination="o0s-w7-rml" eventType="valueChanged" id="wn3-go-5TS"/>
                                 </connections>
                             </segmentedControl>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="yxe-xQ-KaO">
-                                <rect key="frame" x="16" y="435" width="288" height="29"/>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(You need to dismiss this view controller and show another one for the UIAppearance settings to take effect.)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pB3-vy-dfg">
+                                <rect key="frame" x="16" y="422" width="288" height="77"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" id="Yio-9o-GJC">
+                                <rect key="frame" x="16" y="314" width="288" height="29"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <segments>
-                                    <segment title="nil borderColor"/>
+                                    <segment title="bgColor=nil"/>
                                     <segment title="custom"/>
                                     <segment title="UIAppearance"/>
                                 </segments>
                                 <connections>
-                                    <action selector="changeBorder:" destination="o0s-w7-rml" eventType="valueChanged" id="5lz-j1-Ic5"/>
+                                    <action selector="changeBackground:" destination="o0s-w7-rml" eventType="valueChanged" id="2EX-3u-Tuv"/>
                                 </connections>
                             </segmentedControl>
                         </subviews>
@@ -140,6 +147,7 @@
                     <connections>
                         <outlet property="backgroundControl" destination="Yio-9o-GJC" id="hHV-9d-uyF"/>
                         <outlet property="borderControl" destination="yxe-xQ-KaO" id="ekI-Gv-qwq"/>
+                        <outlet property="footnoteLabel" destination="pB3-vy-dfg" id="QWx-f8-6LN"/>
                         <outlet property="selectionControl" destination="RkI-f6-PaA" id="xsZ-XY-h4h"/>
                     </connections>
                 </viewController>
@@ -183,7 +191,7 @@
                 <navigationController storyboardIdentifier="Tab3" id="4pl-Mq-2Zd" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Tab 3" image="Tab3" id="C5j-ot-9tl">
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="069DEF9E-2A9E-44C1-8E6F-3A26254079C2"/>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="Tab3Selected"/>
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
@@ -198,132 +206,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="069DEF9E-2A9E-44C1-8E6F-3A26254079C2" width="33" height="33">
-            <mutableData key="keyedArchiveRepresentation">
-YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
-GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
-c1dOU0NvbG9ygAKADRIgwAAAgAOAC1h7MzMsIDMzfdIVChYYWk5TLm9iamVjdHOhF4AEgArSFQoaHaIb
-HIAFgAaACRAA0iAKISJfEBROU1RJRkZSZXByZXNlbnRhdGlvboAHgAhPERlyTU0AKgAAEQwAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPAAAA
-rAAAAA8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAABbAAAA/wAAAFsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAUAAADIAAAA/wAAAMgAAAAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEsAAAD+AAAA/wAAAP4AAABLAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAALoAAAD/AAAA/wAAAP8AAAC6AAAA
-AgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPAAAAPsAAAD/AAAA
-/wAAAP8AAAD7AAAAPAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-qgAAAP8AAAD/AAAA/wAAAP8AAAD/AAAAqgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAvAAAA9gAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA9gAAAC8AAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAACaAAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAJoAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACEAAADwAAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA
-/wAAAPAAAAAhAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcAAAAYAAAANQAAAJ8AAAD/AAAA/wAAAP8AAAD/AAAA
-/wAAAP8AAAD/AAAA/wAAAP8AAACfAAAANQAAABgAAAAHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAA8AAAAlAAAARgAAAGcAAACPAAAAsgAAANIAAADsAAAA+wAAAP8AAAD/AAAA
-/wEBAf8ICAj/CAgI/AQEBP8AAAD/AAAA/wAAAP8AAAD/AAAA+wAAAOwAAADSAAAAsgAAAI8AAABnAAAA
-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
-/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAAhQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAqwAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA
-/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAAqgAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAAAzwAAAP8AAAD/AAAA
-/wAAAP8AAAD/AAAA/wAAAP8AAADSAAAAfgAAANIAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA
-zgAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXAAAA
-6QAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA5gAAAHUAAAAOAAAAAAAAAA4AAAB1AAAA5gAAAP8AAAD/AAAA
-/wAAAP8AAAD/AAAA5AAAABcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAxAAAA/AAAAP8AAAD/AAAA/wAAAPMAAACQAAAAHgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-HgAAAJAAAADzAAAA/wAAAP8AAAD/AAAA+wAAADEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAABVAAAA/wAAAP8AAAD9AAAAqgAAADAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAAqwAAAP0AAAD/AAAA/gAAAFYAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACBAAAA/wAAAMEAAABHAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEcAAADCAAAA/wAAAIEAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABvAAAAewAAAAUAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFAAAA
-ewAAAG8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgEAAAMAAAABACEAAAEBAAMAAAABACEAAAECAAMA
-AAAEAAARugEDAAMAAAABAAEAAAEGAAMAAAABAAIAAAERAAQAAAABAAAACAESAAMAAAABAAEAAAEVAAMA
-AAABAAQAAAEWAAMAAAABACEAAAEXAAQAAAABAAARBAEcAAMAAAABAAEAAAFSAAMAAAABAAEAAAFTAAMA
-AAAEAAARwodzAAcAAAeoAAARygAAAAAACAAIAAgACAABAAEAAQABAAAHqGFwcGwCIAAAbW50clJHQiBY
-WVogB9kAAgAZAAsAGgALYWNzcEFQUEwAAAAAYXBwbAAAAAAAAAAAAAAAAAAAAAAAAPbWAAEAAAAA0y1h
-cHBsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALZGVzYwAAAQgA
-AABvZHNjbQAAAXgAAAVsY3BydAAABuQAAAA4d3RwdAAABxwAAAAUclhZWgAABzAAAAAUZ1hZWgAAB0QA
-AAAUYlhZWgAAB1gAAAAUclRSQwAAB2wAAAAOY2hhZAAAB3wAAAAsYlRSQwAAB2wAAAAOZ1RSQwAAB2wA
-AAAOZGVzYwAAAAAAAAAUR2VuZXJpYyBSR0IgUHJvZmlsZQAAAAAAAAAAAAAAFEdlbmVyaWMgUkdCIFBy
-b2ZpbGUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAG1sdWMA
-AAAAAAAAHgAAAAxza1NLAAAAKAAAAXhockhSAAAAKAAAAaBjYUVTAAAAJAAAAchwdEJSAAAAJgAAAex1
-a1VBAAAAKgAAAhJmckZVAAAAKAAAAjx6aFRXAAAAFgAAAmRpdElUAAAAKAAAAnpuYk5PAAAAJgAAAqJr
-b0tSAAAAFgAAAshjc0NaAAAAIgAAAt5oZUlMAAAAHgAAAwBkZURFAAAALAAAAx5odUhVAAAAKAAAA0pz
-dlNFAAAAJgAAAqJ6aENOAAAAFgAAA3JqYUpQAAAAGgAAA4hyb1JPAAAAJAAAA6JlbEdSAAAAIgAAA8Zw
-dFBPAAAAJgAAA+hubE5MAAAAKAAABA5lc0VTAAAAJgAAA+h0aFRIAAAAJAAABDZ0clRSAAAAIgAABFpm
-aUZJAAAAKAAABHxwbFBMAAAALAAABKRydVJVAAAAIgAABNBhckVHAAAAJgAABPJlblVTAAAAJgAABRhk
-YURLAAAALgAABT4AVgFhAGUAbwBiAGUAYwBuAP0AIABSAEcAQgAgAHAAcgBvAGYAaQBsAEcAZQBuAGUA
-cgBpAQ0AawBpACAAUgBHAEIAIABwAHIAbwBmAGkAbABQAGUAcgBmAGkAbAAgAFIARwBCACAAZwBlAG4A
-6AByAGkAYwBQAGUAcgBmAGkAbAAgAFIARwBCACAARwBlAG4A6QByAGkAYwBvBBcEMAQzBDAEOwRMBD0E
-OAQ5ACAEPwRABD4ERAQwBDkEOwAgAFIARwBCAFAAcgBvAGYAaQBsACAAZwDpAG4A6QByAGkAcQB1AGUA
-IABSAFYAQpAadSgAIABSAEcAQgAggnJfaWPPj/AAUAByAG8AZgBpAGwAbwAgAFIARwBCACAAZwBlAG4A
-ZQByAGkAYwBvAEcAZQBuAGUAcgBpAHMAawAgAFIARwBCAC0AcAByAG8AZgBpAGzHfLwYACAAUgBHAEIA
-INUEuFzTDMd8AE8AYgBlAGMAbgD9ACAAUgBHAEIAIABwAHIAbwBmAGkAbAXkBegF1QXkBdkF3AAgAFIA
-RwBCACAF2wXcBdwF2QBBAGwAbABnAGUAbQBlAGkAbgBlAHMAIABSAEcAQgAtAFAAcgBvAGYAaQBsAMEA
-bAB0AGEAbADhAG4AbwBzACAAUgBHAEIAIABwAHIAbwBmAGkAbGZukBoAIABSAEcAQgAgY8+P8GWHTvZO
-AIIsACAAUgBHAEIAIDDXMO0w1TChMKQw6wBQAHIAbwBmAGkAbAAgAFIARwBCACAAZwBlAG4AZQByAGkA
-YwOTA7UDvQO5A7oDzAAgA8ADwQO/A8YDrwO7ACAAUgBHAEIAUABlAHIAZgBpAGwAIABSAEcAQgAgAGcA
-ZQBuAOkAcgBpAGMAbwBBAGwAZwBlAG0AZQBlAG4AIABSAEcAQgAtAHAAcgBvAGYAaQBlAGwOQg4bDiMO
-RA4fDiUOTAAgAFIARwBCACAOFw4xDkgOJw5EDhsARwBlAG4AZQBsACAAUgBHAEIAIABQAHIAbwBmAGkA
-bABpAFkAbABlAGkAbgBlAG4AIABSAEcAQgAtAHAAcgBvAGYAaQBpAGwAaQBVAG4AaQB3AGUAcgBzAGEA
-bABuAHkAIABwAHIAbwBmAGkAbAAgAFIARwBCBB4EMQRJBDgEOQAgBD8EQAQ+BEQEOAQ7BEwAIABSAEcA
-QgZFBkQGQQAgBioGOQYxBkoGQQAgAFIARwBCACAGJwZEBjkGJwZFAEcAZQBuAGUAcgBpAGMAIABSAEcA
-QgAgAFAAcgBvAGYAaQBsAGUARwBlAG4AZQByAGUAbAAgAFIARwBCAC0AYgBlAHMAawByAGkAdgBlAGwA
-cwBldGV4dAAAAABDb3B5cmlnaHQgMjAwNyBBcHBsZSBJbmMuLCBhbGwgcmlnaHRzIHJlc2VydmVkLgBY
-WVogAAAAAAAA81IAAQAAAAEWz1hZWiAAAAAAAAB0TQAAPe4AAAPQWFlaIAAAAAAAAFp1AACscwAAFzRY
-WVogAAAAAAAAKBoAABWfAAC4NmN1cnYAAAAAAAAAAQHNAABzZjMyAAAAAAABDEIAAAXe///zJgAAB5IA
-AP2R///7ov///aMAAAPcAADAbNIlJicoWiRjbGFzc25hbWVYJGNsYXNzZXNfEBBOU0JpdG1hcEltYWdl
-UmVwoykqK18QEE5TQml0bWFwSW1hZ2VSZXBaTlNJbWFnZVJlcFhOU09iamVjdNIlJi0uV05TQXJyYXmi
-LSvSJSYwMV5OU011dGFibGVBcnJheaMwLSvTMzQKNTY3V05TV2hpdGVcTlNDb2xvclNwYWNlRDAgMAAQ
-A4AM0iUmOTpXTlNDb2xvcqI5K9IlJjw9V05TSW1hZ2WiPCtfEA9OU0tleWVkQXJjaGl2ZXLRQEFUcm9v
-dIABAAgAEQAaACMALQAyADcARgBMAFcAXgBlAHIAeQCBAIMAhQCKAIwAjgCXAJwApwCpAKsArQCyALUA
-twC5ALsAvQDCANkA2wDdGlMaWBpjGmwafxqDGpYaoRqqGq8atxq6Gr8azhrSGtka4RruGvMa9Rr3Gvwb
-BBsHGwwbFBsXGykbLBsxAAAAAAAAAgEAAAAAAAAAQgAAAAAAAAAAAAAAAAAAGzM
-</mutableData>
-        </image>
         <image name="Tab1" width="33" height="33"/>
         <image name="Tab2" width="33" height="33"/>
         <image name="Tab3" width="33" height="33"/>
+        <image name="Tab3Selected" width="33" height="33"/>
         <image name="Tab4" width="25" height="4"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

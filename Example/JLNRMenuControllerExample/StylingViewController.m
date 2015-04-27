@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *backgroundControl;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *borderControl;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *selectionControl;
+@property (weak, nonatomic) IBOutlet UILabel *footnoteLabel;
 
 @end
 
@@ -30,21 +31,21 @@
 {
     [super viewWillAppear:animated];
     
-    if (self.menuController.menuView.backgroundColor) {
-        self.backgroundControl.selectedSegmentIndex = 1;
-    }
-    else if ([JLNRMenuView appearance].backgroundColor) {
+    if ([JLNRMenuView appearance].backgroundColor) {
         self.backgroundControl.selectedSegmentIndex = 2;
+    }
+    else if (self.menuController.menuView.backgroundColor) {
+        self.backgroundControl.selectedSegmentIndex = 1;
     }
     else {
         self.backgroundControl.selectedSegmentIndex = 0;
     }
     
-    if (self.menuController.menuView.borderColor) {
-        self.borderControl.selectedSegmentIndex = 1;
-    }
-    else if ([JLNRMenuView appearance].borderColor) {
+    if ([JLNRMenuView appearance].borderColor) {
         self.borderControl.selectedSegmentIndex = 2;
+    }
+    else if (self.menuController.menuView.borderColor) {
+        self.borderControl.selectedSegmentIndex = 1;
     }
     else {
         self.borderControl.selectedSegmentIndex = 0;
@@ -64,7 +65,11 @@
     BOOL appearance = (self.backgroundControl.selectedSegmentIndex == 2);
     
     self.menuController.menuView.backgroundColor = (custom ? [UIColor purpleColor] : nil);
-    [JLNRMenuView appearance].backgroundColor = (appearance ? [UIColor redColor] : nil);
+    [JLNRMenuView appearance].backgroundColor = (appearance ? [UIColor yellowColor] : nil);
+    
+    if (appearance) {
+        self.footnoteLabel.hidden = NO;
+    }
     
     [self.menuController.menuView setNeedsDisplay];
 }
@@ -75,8 +80,12 @@
     BOOL appearance = (self.borderControl.selectedSegmentIndex == 2);
     
     self.menuController.menuView.borderColor = (custom ? [UIColor greenColor] : nil);
-    [JLNRMenuView appearance].borderColor = (appearance ? [UIColor magentaColor] : nil);
-    
+    [JLNRMenuView appearance].borderColor = (appearance ? [UIColor redColor] : nil);
+
+    if (appearance) {
+        self.footnoteLabel.hidden = NO;
+    }
+
     [self.menuController.menuView setNeedsDisplay];
 }
 
@@ -84,7 +93,9 @@
 {
     BOOL appearance = (self.selectionControl.selectedSegmentIndex == 1);
     
-    [JLNRMenuCell appearance].selectionIndicatorColor = (appearance ? [UIColor whiteColor] : nil);
+    [JLNRMenuCell appearance].selectionIndicatorColor = (appearance ? [UIColor magentaColor] : nil);
+    
+    self.footnoteLabel.hidden = NO;
     
     [self.menuController.menuView setNeedsDisplay];
 }
