@@ -98,14 +98,14 @@ static CGFloat const kImageViewSize = 33;
 {
     [super tintColorDidChange];
     
-    self.label.textColor = self.tintColor;
+    [self updateColors];
 }
 
 - (void)setHighlighted:(BOOL)highlighted
 {
     [super setHighlighted:highlighted];
     
-    self.imageView.highlighted = self.selected;
+    [self updateColors];
 }
 
 - (void)setSelected:(BOOL)selected
@@ -114,14 +114,7 @@ static CGFloat const kImageViewSize = 33;
     
     self.imageView.highlighted = selected;
     
-    self.tintColor = (selected ? nil : [UIColor colorWithRed:92.f/255 green:92.f/255 blue:92.f/255 alpha:1]);
-    
-    if (selected && self.selectionIndicatorColor) {
-        self.contentView.backgroundColor = self.selectionIndicatorColor;
-    }
-    else {
-        self.contentView.backgroundColor = [UIColor clearColor];
-    }
+    [self updateColors];
 }
 
 - (void)didMoveToWindow
@@ -129,7 +122,7 @@ static CGFloat const kImageViewSize = 33;
     [super didMoveToWindow];
     
     // UIAppearance only applies once the view has been moved to a window, so see if we have to change the selectionIndicatorColor again.
-    self.selected = self.selected;
+    [self updateColors];
 }
 
 - (void)setSelectionIndicatorColor:(UIColor *)selectionIndicatorColor
@@ -137,7 +130,22 @@ static CGFloat const kImageViewSize = 33;
     _selectionIndicatorColor = selectionIndicatorColor;
     
     // We might have to update the contentView's background color.
-    self.selected = self.selected;
+    [self updateColors];
+}
+
+- (void)updateColors
+{
+    UIColor *nestedTintColor = (self.selected ? nil : [UIColor colorWithRed:92.f/255 green:92.f/255 blue:92.f/255 alpha:1]);
+    
+    self.imageView.tintColor = nestedTintColor;
+    self.label.textColor = nestedTintColor ?: self.tintColor;
+    
+    if (self.selected && self.selectionIndicatorColor) {
+        self.contentView.backgroundColor = self.selectionIndicatorColor;
+    }
+    else {
+        self.contentView.backgroundColor = [UIColor clearColor];
+    }
 }
 
 @end

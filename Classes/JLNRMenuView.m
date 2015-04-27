@@ -8,12 +8,13 @@
 
 #import "JLNRMenuView.h"
 #import "JLNRMenuCell.h"
+#import "JLNRMenuBackgroundView.h"
 
 
 static CGFloat const kDefaultMenuWidth = 100;
 static CGFloat const kDefaultTabBarHeight = 49;
 // This happens to be (longer side of iPhone 6 Plus minus 1), i.e. by default we show the side menu on iPhone 6 Plus or an iPads in landscape.
-static CGFloat const kDefaultMaxContentWidth = 735;
+static CGFloat const kDefaultMaxContentWidth = 400;
 
 
 @interface JLNRMenuView () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
@@ -50,6 +51,8 @@ static CGFloat const kDefaultMaxContentWidth = 735;
     _maxContentWidth = kDefaultMaxContentWidth;
     _menuWidth = kDefaultMenuWidth;
     
+    self.backgroundColor = [UIColor colorWithRed:247.f/255 green:247.f/255 blue:247.f/255 alpha:1];
+    
     self.menu = [self createCollectionView];
     self.tabBar = [self createCollectionView];
     
@@ -70,6 +73,11 @@ static CGFloat const kDefaultMaxContentWidth = 735;
     collectionView.delegate = self;
     collectionView.allowsMultipleSelection = YES;
     [collectionView registerClass:[JLNRMenuCell class] forCellWithReuseIdentifier:@"Cell"];
+    
+    JLNRMenuBackgroundView *backgroundView = [JLNRMenuBackgroundView new];
+    backgroundView.borderColor = self.borderColor;
+    backgroundView.opaque = NO;
+    collectionView.backgroundView = backgroundView;
     collectionView.backgroundColor = [UIColor clearColor];
     
     [self addSubview:collectionView];
@@ -138,6 +146,18 @@ static CGFloat const kDefaultMaxContentWidth = 735;
 {
     [self.menu reloadData];
     [self.tabBar reloadData];
+}
+
+#pragma mark - Passing through some properties
+
+- (void)setBorderColor:(UIColor *)borderColor
+{
+    _borderColor = borderColor;
+    
+    for (UICollectionView *collectionView in @[self.menu, self.tabBar]) {
+        JLNRMenuBackgroundView *backgroundView = (JLNRMenuBackgroundView *)collectionView.backgroundView;
+        backgroundView.borderColor = borderColor;
+    }
 }
 
 #pragma mark - UICollectionViewDataSource
