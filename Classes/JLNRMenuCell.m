@@ -105,6 +105,8 @@ static CGFloat const kImageViewSize = 33;
 {
     [super setHighlighted:highlighted];
     
+    self.imageView.highlighted = self.selected;
+    
     [self updateColors];
 }
 
