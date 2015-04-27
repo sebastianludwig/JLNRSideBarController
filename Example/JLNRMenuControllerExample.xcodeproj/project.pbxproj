@@ -17,7 +17,7 @@
 		D4E81D8D1AEE904F006F6502 /* JLNRMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E81D871AEE904F006F6502 /* JLNRMenuCell.m */; };
 		D4E81D8E1AEE904F006F6502 /* JLNRMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E81D891AEE904F006F6502 /* JLNRMenuController.m */; };
 		D4E81D8F1AEE904F006F6502 /* JLNRMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E81D8B1AEE904F006F6502 /* JLNRMenuView.m */; };
-		D4E81D921AEE92D4006F6502 /* DummyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E81D911AEE92D4006F6502 /* DummyViewController.m */; };
+		D4E81D921AEE92D4006F6502 /* StylingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E81D911AEE92D4006F6502 /* StylingViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,8 +39,8 @@
 		D4E81D891AEE904F006F6502 /* JLNRMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JLNRMenuController.m; path = ../Classes/JLNRMenuController.m; sourceTree = "<group>"; };
 		D4E81D8A1AEE904F006F6502 /* JLNRMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JLNRMenuView.h; path = ../Classes/JLNRMenuView.h; sourceTree = "<group>"; };
 		D4E81D8B1AEE904F006F6502 /* JLNRMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JLNRMenuView.m; path = ../Classes/JLNRMenuView.m; sourceTree = "<group>"; };
-		D4E81D901AEE92D4006F6502 /* DummyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyViewController.h; sourceTree = "<group>"; };
-		D4E81D911AEE92D4006F6502 /* DummyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyViewController.m; sourceTree = "<group>"; };
+		D4E81D901AEE92D4006F6502 /* StylingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StylingViewController.h; sourceTree = "<group>"; };
+		D4E81D911AEE92D4006F6502 /* StylingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StylingViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,14 +76,14 @@
 			children = (
 				D4E81D611AEE8DB9006F6502 /* AppDelegate.h */,
 				D4E81D621AEE8DB9006F6502 /* AppDelegate.m */,
+				D4E81D6A1AEE8DB9006F6502 /* Images.xcassets */,
 				D4E81D641AEE8DB9006F6502 /* IntroViewController.h */,
 				D4E81D651AEE8DB9006F6502 /* IntroViewController.m */,
-				D4E81D671AEE8DB9006F6502 /* Main.storyboard */,
-				D4E81D6A1AEE8DB9006F6502 /* Images.xcassets */,
 				D4E81D6C1AEE8DB9006F6502 /* LaunchScreen.xib */,
+				D4E81D671AEE8DB9006F6502 /* Main.storyboard */,
+				D4E81D901AEE92D4006F6502 /* StylingViewController.h */,
+				D4E81D911AEE92D4006F6502 /* StylingViewController.m */,
 				D4E81D5D1AEE8DB9006F6502 /* Supporting Files */,
-				D4E81D901AEE92D4006F6502 /* DummyViewController.h */,
-				D4E81D911AEE92D4006F6502 /* DummyViewController.m */,
 			);
 			name = Example;
 			path = JLNRMenuControllerExample;
@@ -186,7 +186,7 @@
 				D4E81D8D1AEE904F006F6502 /* JLNRMenuCell.m in Sources */,
 				D4E81D661AEE8DB9006F6502 /* IntroViewController.m in Sources */,
 				D4E81D8C1AEE904F006F6502 /* JLNRMenuBackgroundView.m in Sources */,
-				D4E81D921AEE92D4006F6502 /* DummyViewController.m in Sources */,
+				D4E81D921AEE92D4006F6502 /* StylingViewController.m in Sources */,
 				D4E81D8F1AEE904F006F6502 /* JLNRMenuView.m in Sources */,
 				D4E81D631AEE8DB9006F6502 /* AppDelegate.m in Sources */,
 				D4E81D8E1AEE904F006F6502 /* JLNRMenuController.m in Sources */,

@@ -1,5 +1,5 @@
 //
-//  DummyViewController.h
+//  StylingViewController.h
 //  JLNRMenuControllerExample
 //
 //  Created by Julian Raschke on 27.04.15.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DummyViewController : UIViewController
+@interface StylingViewController : UIViewController
 
 @end

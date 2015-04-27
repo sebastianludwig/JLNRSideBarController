@@ -21,7 +21,7 @@
         for (NSInteger i = 1; i <= 4; ++i) {
             NSString *identifier = [NSString stringWithFormat:@"Tab%@", @(i)];
             UINavigationController *navigationController = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
-            UIViewController *dummyViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"DummyViewController"];
+            UIViewController *dummyViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"StylingViewController"];
             navigationController.viewControllers = @[dummyViewController];
             [viewControllers addObject:navigationController];
         }
