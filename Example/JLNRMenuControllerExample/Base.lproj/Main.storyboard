@@ -75,86 +75,6 @@
             </objects>
             <point key="canvasLocation" x="405" y="340"/>
         </scene>
-        <!--Rotate Me-->
-        <scene sceneID="eOB-9N-PB0">
-            <objects>
-                <viewController storyboardIdentifier="StylingViewController" id="o0s-w7-rml" customClass="StylingViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Y3h-iD-pEi">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JLNRViewController uses a tab bar at the bottom, or a side menu on iPhone 6 Plus and iPad when in landscape mode." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5cj-fa-V9v">
-                                <rect key="frame" x="16" y="80" width="288" height="226"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" id="yxe-xQ-KaO">
-                                <rect key="frame" x="16" y="350" width="288" height="29"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <segments>
-                                    <segment title="borderColor=nil"/>
-                                    <segment title="custom"/>
-                                    <segment title="UIAppearance"/>
-                                </segments>
-                                <connections>
-                                    <action selector="changeBorder:" destination="o0s-w7-rml" eventType="valueChanged" id="5lz-j1-Ic5"/>
-                                </connections>
-                            </segmentedControl>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" id="RkI-f6-PaA">
-                                <rect key="frame" x="16" y="386" width="288" height="29"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <segments>
-                                    <segment title="selectionIndicatorColor=nil"/>
-                                    <segment title="UIAppearance"/>
-                                </segments>
-                                <connections>
-                                    <action selector="changeSelection:" destination="o0s-w7-rml" eventType="valueChanged" id="wn3-go-5TS"/>
-                                </connections>
-                            </segmentedControl>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(You need to dismiss this view controller and show another one for the UIAppearance settings to take effect.)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pB3-vy-dfg">
-                                <rect key="frame" x="16" y="422" width="288" height="77"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" id="Yio-9o-GJC">
-                                <rect key="frame" x="16" y="314" width="288" height="29"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <segments>
-                                    <segment title="bgColor=nil"/>
-                                    <segment title="custom"/>
-                                    <segment title="UIAppearance"/>
-                                </segments>
-                                <connections>
-                                    <action selector="changeBackground:" destination="o0s-w7-rml" eventType="valueChanged" id="2EX-3u-Tuv"/>
-                                </connections>
-                            </segmentedControl>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Rotate Me" id="tfl-ON-HAz">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="o4P-F7-RdA">
-                            <connections>
-                                <action selector="dismiss:" destination="o0s-w7-rml" id="7mc-Pc-amQ"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
-                    <connections>
-                        <outlet property="backgroundControl" destination="Yio-9o-GJC" id="hHV-9d-uyF"/>
-                        <outlet property="borderControl" destination="yxe-xQ-KaO" id="ekI-Gv-qwq"/>
-                        <outlet property="footnoteLabel" destination="pB3-vy-dfg" id="QWx-f8-6LN"/>
-                        <outlet property="selectionControl" destination="RkI-f6-PaA" id="xsZ-XY-h4h"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="77G-Bv-vo3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1372" y="406"/>
-        </scene>
         <!--Tab 2-->
         <scene sceneID="ZKe-46-HCs">
             <objects>
@@ -169,21 +89,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d6g-im-YpW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="596" y="405"/>
-        </scene>
-        <!--Tab 4-->
-        <scene sceneID="Ugv-Tz-GR1">
-            <objects>
-                <navigationController storyboardIdentifier="Tab4" id="47Q-pD-p25" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Tab 4" image="Tab4" id="sbt-kj-4ew"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="OUU-Gu-6dd">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1Gz-6G-bsJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="979" y="535"/>
         </scene>
         <!--Tab 3-->
         <scene sceneID="Ls6-df-0yh">
@@ -203,6 +108,131 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hsJ-B3-QxY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="793" y="470"/>
+        </scene>
+        <!--Tab 4-->
+        <scene sceneID="Ugv-Tz-GR1">
+            <objects>
+                <navigationController storyboardIdentifier="Tab4" id="47Q-pD-p25" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Tab 4" image="Tab4" id="sbt-kj-4ew"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="OUU-Gu-6dd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Gz-6G-bsJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="979" y="535"/>
+        </scene>
+        <!--Rotate Me-->
+        <scene sceneID="eOB-9N-PB0">
+            <objects>
+                <viewController storyboardIdentifier="StylingViewController" id="o0s-w7-rml" customClass="StylingViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Y3h-iD-pEi">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="735" minValue="0.0" maxValue="1024" id="PCR-hK-hJ9">
+                                <rect key="frame" x="14" y="240" width="221" height="31"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <action selector="changeContentWidth:" destination="o0s-w7-rml" eventType="valueChanged" id="5bC-9z-zO1"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="735px" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ktm-DP-PdN">
+                                <rect key="frame" x="241" y="244" width="63" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" id="Yio-9o-GJC">
+                                <rect key="frame" x="16" y="278" width="288" height="29"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <segments>
+                                    <segment title="bgColor=nil"/>
+                                    <segment title="custom"/>
+                                    <segment title="UIAppearance"/>
+                                </segments>
+                                <connections>
+                                    <action selector="changeBackground:" destination="o0s-w7-rml" eventType="valueChanged" id="2EX-3u-Tuv"/>
+                                </connections>
+                            </segmentedControl>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" id="yxe-xQ-KaO">
+                                <rect key="frame" x="16" y="314" width="288" height="29"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <segments>
+                                    <segment title="borderColor=nil"/>
+                                    <segment title="custom"/>
+                                    <segment title="UIAppearance"/>
+                                </segments>
+                                <connections>
+                                    <action selector="changeBorder:" destination="o0s-w7-rml" eventType="valueChanged" id="5lz-j1-Ic5"/>
+                                </connections>
+                            </segmentedControl>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" id="RkI-f6-PaA">
+                                <rect key="frame" x="16" y="350" width="288" height="29"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <segments>
+                                    <segment title="selectionIndicatorColor=nil"/>
+                                    <segment title="UIAppearance"/>
+                                </segments>
+                                <connections>
+                                    <action selector="changeSelectionIndicator:" destination="o0s-w7-rml" eventType="valueChanged" id="iSU-7f-bKh"/>
+                                </connections>
+                            </segmentedControl>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" id="gRt-wD-Zxg">
+                                <rect key="frame" x="16" y="386" width="288" height="29"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <segments>
+                                    <segment title="inactiveColor=nil"/>
+                                    <segment title="UIAppearance"/>
+                                </segments>
+                                <connections>
+                                    <action selector="changeBackground:" destination="o0s-w7-rml" eventType="valueChanged" id="aFM-ca-Mcd"/>
+                                    <action selector="changeInactive:" destination="o0s-w7-rml" eventType="valueChanged" id="3aw-7d-NKX"/>
+                                </connections>
+                            </segmentedControl>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(You need to dismiss this view controller and show another one for the UIAppearance settings to take effect.)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pB3-vy-dfg">
+                                <rect key="frame" x="16" y="422" width="288" height="77"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5cj-fa-V9v">
+                                <rect key="frame" x="16" y="89" width="288" height="143"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <string key="text">JLNRViewController uses a tab bar at the bottom, or a side menu when in landscape mode and when the available width is bigger than…</string>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Rotate Me" id="tfl-ON-HAz">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="o4P-F7-RdA">
+                            <connections>
+                                <action selector="dismiss:" destination="o0s-w7-rml" id="7mc-Pc-amQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
+                    <connections>
+                        <outlet property="backgroundControl" destination="Yio-9o-GJC" id="hHV-9d-uyF"/>
+                        <outlet property="borderControl" destination="yxe-xQ-KaO" id="ekI-Gv-qwq"/>
+                        <outlet property="contentWidthLabel" destination="ktm-DP-PdN" id="J5C-nq-kmd"/>
+                        <outlet property="contentWidthSlider" destination="PCR-hK-hJ9" id="kXh-8s-Din"/>
+                        <outlet property="footnoteLabel" destination="pB3-vy-dfg" id="QWx-f8-6LN"/>
+                        <outlet property="inactiveControl" destination="gRt-wD-Zxg" id="SdC-YI-eWR"/>
+                        <outlet property="selectionIndicatorControl" destination="RkI-f6-PaA" id="y6B-ry-uMC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="77G-Bv-vo3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1372" y="406"/>
         </scene>
     </scenes>
     <resources>

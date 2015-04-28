@@ -12,9 +12,12 @@
 
 @interface StylingViewController ()
 
+@property (weak, nonatomic) IBOutlet UISlider *contentWidthSlider;
+@property (weak, nonatomic) IBOutlet UILabel *contentWidthLabel;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *backgroundControl;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *borderControl;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *selectionControl;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *selectionIndicatorControl;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *inactiveControl;
 @property (weak, nonatomic) IBOutlet UILabel *footnoteLabel;
 
 @end
@@ -30,6 +33,10 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    CGFloat contentWidth = self.menuController.menuView.maxContentWidth;
+    self.contentWidthSlider.value = contentWidth;
+    self.contentWidthLabel.text = [NSString stringWithFormat:@"%@px", @(contentWidth)];
     
     if ([JLNRMenuView appearance].backgroundColor) {
         self.backgroundControl.selectedSegmentIndex = 2;
@@ -50,13 +57,27 @@
     else {
         self.borderControl.selectedSegmentIndex = 0;
     }
-
+    
     if ([[JLNRMenuCell appearance] selectionIndicatorColor]) {
-        self.selectionControl.selectedSegmentIndex = 1;
+        self.selectionIndicatorControl.selectedSegmentIndex = 1;
     }
     else {
-        self.selectionControl.selectedSegmentIndex = 0;
+        self.selectionIndicatorControl.selectedSegmentIndex = 0;
     }
+    
+    if ([[JLNRMenuCell appearance] inactiveColor]) {
+        self.inactiveControl.selectedSegmentIndex = 1;
+    }
+    else {
+        self.inactiveControl.selectedSegmentIndex = 0;
+    }
+}
+
+- (IBAction)changeContentWidth:(id)sender
+{
+    CGFloat contentWidth = round(self.contentWidthSlider.value);
+    self.menuController.menuView.maxContentWidth = contentWidth;
+    self.contentWidthLabel.text = [NSString stringWithFormat:@"%@px", @(contentWidth)];
 }
 
 - (IBAction)changeBackground:(id)sender
@@ -70,8 +91,6 @@
     if (appearance) {
         self.footnoteLabel.hidden = NO;
     }
-    
-    [self.menuController.menuView setNeedsDisplay];
 }
 
 - (IBAction)changeBorder:(id)sender
@@ -85,19 +104,24 @@
     if (appearance) {
         self.footnoteLabel.hidden = NO;
     }
-
-    [self.menuController.menuView setNeedsDisplay];
 }
 
-- (IBAction)changeSelection:(id)sender
+- (IBAction)changeSelectionIndicator:(id)sender
 {
-    BOOL appearance = (self.selectionControl.selectedSegmentIndex == 1);
+    BOOL appearance = (self.selectionIndicatorControl.selectedSegmentIndex == 1);
     
     [JLNRMenuCell appearance].selectionIndicatorColor = (appearance ? [UIColor magentaColor] : nil);
     
     self.footnoteLabel.hidden = NO;
+}
+
+- (IBAction)changeInactive:(id)sender
+{
+    BOOL appearance = (self.inactiveControl.selectedSegmentIndex == 1);
     
-    [self.menuController.menuView setNeedsDisplay];
+    [JLNRMenuCell appearance].inactiveColor = (appearance ? [UIColor brownColor] : nil);
+    
+    self.footnoteLabel.hidden = NO;
 }
 
 - (IBAction)dismiss:(id)sender

@@ -12,6 +12,7 @@
 @interface JLNRMenuCell : UICollectionViewCell
 
 @property (nonatomic) UIColor *selectionIndicatorColor UI_APPEARANCE_SELECTOR;
+@property (nonatomic) UIColor *inactiveColor UI_APPEARANCE_SELECTOR;
 
 - (void)setupWithTabBarItem:(UITabBarItem *)item;
 

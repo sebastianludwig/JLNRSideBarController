@@ -131,13 +131,20 @@ static CGFloat const kImageViewSize = 33;
 {
     _selectionIndicatorColor = selectionIndicatorColor;
     
-    // We might have to update the contentView's background color.
+    [self updateColors];
+}
+
+- (void)setInactiveColor:(UIColor *)inactiveColor
+{
+    _inactiveColor = inactiveColor;
+    
     [self updateColors];
 }
 
 - (void)updateColors
 {
-    UIColor *nestedTintColor = (self.selected ? nil : [UIColor colorWithRed:92.f/255 green:92.f/255 blue:92.f/255 alpha:1]);
+    UIColor *inactiveColor = self.inactiveColor ?: [UIColor colorWithRed:92.f/255 green:92.f/255 blue:92.f/255 alpha:1];
+    UIColor *nestedTintColor = (self.selected ? nil : inactiveColor);
     
     self.imageView.tintColor = nestedTintColor;
     self.label.textColor = nestedTintColor ?: self.tintColor;
