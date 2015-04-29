@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name         = "JLNRMenuController"
+  s.name         = "JLNRSideBarController"
   s.version      = "0.0.1"
   s.summary      = "UITabController replacement that uses a side menu on iPad & iPhone 6 Plus"
 
