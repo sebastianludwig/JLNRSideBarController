@@ -7,21 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D4121E601AF17475002C6A7B /* JLNRBarBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4121E591AF17475002C6A7B /* JLNRBarBackgroundView.m */; };
+		D4121E611AF17475002C6A7B /* JLNRBarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D4121E5B1AF17475002C6A7B /* JLNRBarCell.m */; };
+		D4121E621AF17475002C6A7B /* JLNRBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D4121E5D1AF17475002C6A7B /* JLNRBar.m */; };
+		D4121E631AF17475002C6A7B /* JLNRSideBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4121E5F1AF17475002C6A7B /* JLNRSideBarController.m */; };
 		D4E81D601AEE8DB9006F6502 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E81D5F1AEE8DB9006F6502 /* main.m */; };
 		D4E81D631AEE8DB9006F6502 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E81D621AEE8DB9006F6502 /* AppDelegate.m */; };
 		D4E81D661AEE8DB9006F6502 /* IntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E81D651AEE8DB9006F6502 /* IntroViewController.m */; };
 		D4E81D691AEE8DB9006F6502 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4E81D671AEE8DB9006F6502 /* Main.storyboard */; };
 		D4E81D6B1AEE8DB9006F6502 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4E81D6A1AEE8DB9006F6502 /* Images.xcassets */; };
 		D4E81D6E1AEE8DB9006F6502 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4E81D6C1AEE8DB9006F6502 /* LaunchScreen.xib */; };
-		D4E81D8C1AEE904F006F6502 /* JLNRMenuBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E81D851AEE904F006F6502 /* JLNRMenuBackgroundView.m */; };
-		D4E81D8D1AEE904F006F6502 /* JLNRMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E81D871AEE904F006F6502 /* JLNRMenuCell.m */; };
-		D4E81D8E1AEE904F006F6502 /* JLNRMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E81D891AEE904F006F6502 /* JLNRMenuController.m */; };
-		D4E81D8F1AEE904F006F6502 /* JLNRMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E81D8B1AEE904F006F6502 /* JLNRMenuView.m */; };
 		D4E81D921AEE92D4006F6502 /* StylingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E81D911AEE92D4006F6502 /* StylingViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D4E81D5A1AEE8DB9006F6502 /* JLNRMenuControllerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JLNRMenuControllerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4121E581AF17475002C6A7B /* JLNRBarBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JLNRBarBackgroundView.h; path = ../Classes/JLNRBarBackgroundView.h; sourceTree = "<group>"; };
+		D4121E591AF17475002C6A7B /* JLNRBarBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JLNRBarBackgroundView.m; path = ../Classes/JLNRBarBackgroundView.m; sourceTree = "<group>"; };
+		D4121E5A1AF17475002C6A7B /* JLNRBarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JLNRBarCell.h; path = ../Classes/JLNRBarCell.h; sourceTree = "<group>"; };
+		D4121E5B1AF17475002C6A7B /* JLNRBarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JLNRBarCell.m; path = ../Classes/JLNRBarCell.m; sourceTree = "<group>"; };
+		D4121E5C1AF17475002C6A7B /* JLNRBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JLNRBar.h; path = ../Classes/JLNRBar.h; sourceTree = "<group>"; };
+		D4121E5D1AF17475002C6A7B /* JLNRBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JLNRBar.m; path = ../Classes/JLNRBar.m; sourceTree = "<group>"; };
+		D4121E5E1AF17475002C6A7B /* JLNRSideBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JLNRSideBarController.h; path = ../Classes/JLNRSideBarController.h; sourceTree = "<group>"; };
+		D4121E5F1AF17475002C6A7B /* JLNRSideBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JLNRSideBarController.m; path = ../Classes/JLNRSideBarController.m; sourceTree = "<group>"; };
+		D4E81D5A1AEE8DB9006F6502 /* JLNRSideBarControllerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JLNRSideBarControllerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4E81D5E1AEE8DB9006F6502 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4E81D5F1AEE8DB9006F6502 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D4E81D611AEE8DB9006F6502 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -31,14 +39,6 @@
 		D4E81D681AEE8DB9006F6502 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D4E81D6A1AEE8DB9006F6502 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D4E81D6D1AEE8DB9006F6502 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		D4E81D841AEE904F006F6502 /* JLNRMenuBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JLNRMenuBackgroundView.h; path = ../Classes/JLNRMenuBackgroundView.h; sourceTree = "<group>"; };
-		D4E81D851AEE904F006F6502 /* JLNRMenuBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JLNRMenuBackgroundView.m; path = ../Classes/JLNRMenuBackgroundView.m; sourceTree = "<group>"; };
-		D4E81D861AEE904F006F6502 /* JLNRMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JLNRMenuCell.h; path = ../Classes/JLNRMenuCell.h; sourceTree = "<group>"; };
-		D4E81D871AEE904F006F6502 /* JLNRMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JLNRMenuCell.m; path = ../Classes/JLNRMenuCell.m; sourceTree = "<group>"; };
-		D4E81D881AEE904F006F6502 /* JLNRMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JLNRMenuController.h; path = ../Classes/JLNRMenuController.h; sourceTree = "<group>"; };
-		D4E81D891AEE904F006F6502 /* JLNRMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JLNRMenuController.m; path = ../Classes/JLNRMenuController.m; sourceTree = "<group>"; };
-		D4E81D8A1AEE904F006F6502 /* JLNRMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JLNRMenuView.h; path = ../Classes/JLNRMenuView.h; sourceTree = "<group>"; };
-		D4E81D8B1AEE904F006F6502 /* JLNRMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JLNRMenuView.m; path = ../Classes/JLNRMenuView.m; sourceTree = "<group>"; };
 		D4E81D901AEE92D4006F6502 /* StylingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StylingViewController.h; sourceTree = "<group>"; };
 		D4E81D911AEE92D4006F6502 /* StylingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StylingViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -58,7 +58,7 @@
 			isa = PBXGroup;
 			children = (
 				D4E81D5C1AEE8DB9006F6502 /* Example */,
-				D4E81D831AEE8E13006F6502 /* JLNRMenuController */,
+				D4E81D831AEE8E13006F6502 /* JLNRSideBarController */,
 				D4E81D5B1AEE8DB9006F6502 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -66,7 +66,7 @@
 		D4E81D5B1AEE8DB9006F6502 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D4E81D5A1AEE8DB9006F6502 /* JLNRMenuControllerExample.app */,
+				D4E81D5A1AEE8DB9006F6502 /* JLNRSideBarControllerExample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -86,7 +86,6 @@
 				D4E81D5D1AEE8DB9006F6502 /* Supporting Files */,
 			);
 			name = Example;
-			path = JLNRMenuControllerExample;
 			sourceTree = "<group>";
 		};
 		D4E81D5D1AEE8DB9006F6502 /* Supporting Files */ = {
@@ -98,27 +97,27 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		D4E81D831AEE8E13006F6502 /* JLNRMenuController */ = {
+		D4E81D831AEE8E13006F6502 /* JLNRSideBarController */ = {
 			isa = PBXGroup;
 			children = (
-				D4E81D841AEE904F006F6502 /* JLNRMenuBackgroundView.h */,
-				D4E81D851AEE904F006F6502 /* JLNRMenuBackgroundView.m */,
-				D4E81D861AEE904F006F6502 /* JLNRMenuCell.h */,
-				D4E81D871AEE904F006F6502 /* JLNRMenuCell.m */,
-				D4E81D881AEE904F006F6502 /* JLNRMenuController.h */,
-				D4E81D891AEE904F006F6502 /* JLNRMenuController.m */,
-				D4E81D8A1AEE904F006F6502 /* JLNRMenuView.h */,
-				D4E81D8B1AEE904F006F6502 /* JLNRMenuView.m */,
+				D4121E581AF17475002C6A7B /* JLNRBarBackgroundView.h */,
+				D4121E591AF17475002C6A7B /* JLNRBarBackgroundView.m */,
+				D4121E5A1AF17475002C6A7B /* JLNRBarCell.h */,
+				D4121E5B1AF17475002C6A7B /* JLNRBarCell.m */,
+				D4121E5C1AF17475002C6A7B /* JLNRBar.h */,
+				D4121E5D1AF17475002C6A7B /* JLNRBar.m */,
+				D4121E5E1AF17475002C6A7B /* JLNRSideBarController.h */,
+				D4121E5F1AF17475002C6A7B /* JLNRSideBarController.m */,
 			);
-			name = JLNRMenuController;
+			name = JLNRSideBarController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D4E81D591AEE8DB9006F6502 /* JLNRMenuControllerExample */ = {
+		D4E81D591AEE8DB9006F6502 /* JLNRSideBarControllerExample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D4E81D7D1AEE8DB9006F6502 /* Build configuration list for PBXNativeTarget "JLNRMenuControllerExample" */;
+			buildConfigurationList = D4E81D7D1AEE8DB9006F6502 /* Build configuration list for PBXNativeTarget "JLNRSideBarControllerExample" */;
 			buildPhases = (
 				D4E81D561AEE8DB9006F6502 /* Sources */,
 				D4E81D571AEE8DB9006F6502 /* Frameworks */,
@@ -128,9 +127,9 @@
 			);
 			dependencies = (
 			);
-			name = JLNRMenuControllerExample;
+			name = JLNRSideBarControllerExample;
 			productName = JLNRMenuControllerExample;
-			productReference = D4E81D5A1AEE8DB9006F6502 /* JLNRMenuControllerExample.app */;
+			productReference = D4E81D5A1AEE8DB9006F6502 /* JLNRSideBarControllerExample.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -147,7 +146,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D4E81D551AEE8DB9006F6502 /* Build configuration list for PBXProject "JLNRMenuControllerExample" */;
+			buildConfigurationList = D4E81D551AEE8DB9006F6502 /* Build configuration list for PBXProject "JLNRSideBarControllerExample" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -160,7 +159,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D4E81D591AEE8DB9006F6502 /* JLNRMenuControllerExample */,
+				D4E81D591AEE8DB9006F6502 /* JLNRSideBarControllerExample */,
 			);
 		};
 /* End PBXProject section */
@@ -183,14 +182,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4E81D8D1AEE904F006F6502 /* JLNRMenuCell.m in Sources */,
 				D4E81D661AEE8DB9006F6502 /* IntroViewController.m in Sources */,
-				D4E81D8C1AEE904F006F6502 /* JLNRMenuBackgroundView.m in Sources */,
+				D4121E601AF17475002C6A7B /* JLNRBarBackgroundView.m in Sources */,
 				D4E81D921AEE92D4006F6502 /* StylingViewController.m in Sources */,
-				D4E81D8F1AEE904F006F6502 /* JLNRMenuView.m in Sources */,
 				D4E81D631AEE8DB9006F6502 /* AppDelegate.m in Sources */,
-				D4E81D8E1AEE904F006F6502 /* JLNRMenuController.m in Sources */,
 				D4E81D601AEE8DB9006F6502 /* main.m in Sources */,
+				D4121E621AF17475002C6A7B /* JLNRBar.m in Sources */,
+				D4121E631AF17475002C6A7B /* JLNRSideBarController.m in Sources */,
+				D4121E611AF17475002C6A7B /* JLNRBarCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,7 +301,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = JLNRMenuControllerExample/Info.plist;
+				INFOPLIST_FILE = Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -312,7 +311,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = JLNRMenuControllerExample/Info.plist;
+				INFOPLIST_FILE = Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -321,7 +320,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D4E81D551AEE8DB9006F6502 /* Build configuration list for PBXProject "JLNRMenuControllerExample" */ = {
+		D4E81D551AEE8DB9006F6502 /* Build configuration list for PBXProject "JLNRSideBarControllerExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D4E81D7B1AEE8DB9006F6502 /* Debug */,
@@ -330,7 +329,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D4E81D7D1AEE8DB9006F6502 /* Build configuration list for PBXNativeTarget "JLNRMenuControllerExample" */ = {
+		D4E81D7D1AEE8DB9006F6502 /* Build configuration list for PBXNativeTarget "JLNRSideBarControllerExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D4E81D7E1AEE8DB9006F6502 /* Debug */,

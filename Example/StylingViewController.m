@@ -1,13 +1,13 @@
 //
 //  StylingViewController.m
-//  JLNRMenuControllerExample
+//  JLNRSideBarControllerExample
 //
 //  Created by Julian Raschke on 27.04.15.
 //  Copyright (c) 2015 Julian Raschke. All rights reserved.
 //
 
 #import "StylingViewController.h"
-#import "JLNRMenuController.h"
+#import "JLNRSideBarController.h"
 
 
 @interface StylingViewController ()
@@ -25,47 +25,47 @@
 
 @implementation StylingViewController
 
-- (JLNRMenuController *)menuController
+- (JLNRSideBarController *)menuController
 {
-    return (JLNRMenuController *)self.navigationController.parentViewController;
+    return (JLNRSideBarController *)self.navigationController.parentViewController;
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
-    CGFloat contentWidth = self.menuController.menuView.maxContentWidth;
+    CGFloat contentWidth = self.menuController.bar.maxContentWidth;
     self.contentWidthSlider.value = contentWidth;
     self.contentWidthLabel.text = [NSString stringWithFormat:@"%@px", @(contentWidth)];
     
-    if ([JLNRMenuView appearance].backgroundColor) {
+    if ([JLNRBar appearance].backgroundColor) {
         self.backgroundControl.selectedSegmentIndex = 2;
     }
-    else if (self.menuController.menuView.backgroundColor) {
+    else if (self.menuController.bar.backgroundColor) {
         self.backgroundControl.selectedSegmentIndex = 1;
     }
     else {
         self.backgroundControl.selectedSegmentIndex = 0;
     }
     
-    if ([JLNRMenuView appearance].borderColor) {
+    if ([JLNRBar appearance].borderColor) {
         self.borderControl.selectedSegmentIndex = 2;
     }
-    else if (self.menuController.menuView.borderColor) {
+    else if (self.menuController.bar.borderColor) {
         self.borderControl.selectedSegmentIndex = 1;
     }
     else {
         self.borderControl.selectedSegmentIndex = 0;
     }
     
-    if ([[JLNRMenuCell appearance] selectionIndicatorColor]) {
+    if ([[JLNRBarCell appearance] selectionIndicatorColor]) {
         self.selectionIndicatorControl.selectedSegmentIndex = 1;
     }
     else {
         self.selectionIndicatorControl.selectedSegmentIndex = 0;
     }
     
-    if ([[JLNRMenuCell appearance] inactiveColor]) {
+    if ([[JLNRBarCell appearance] inactiveColor]) {
         self.inactiveControl.selectedSegmentIndex = 1;
     }
     else {
@@ -76,7 +76,7 @@
 - (IBAction)changeContentWidth:(id)sender
 {
     CGFloat contentWidth = round(self.contentWidthSlider.value);
-    self.menuController.menuView.maxContentWidth = contentWidth;
+    self.menuController.bar.maxContentWidth = contentWidth;
     self.contentWidthLabel.text = [NSString stringWithFormat:@"%@px", @(contentWidth)];
 }
 
@@ -85,8 +85,8 @@
     BOOL custom = (self.backgroundControl.selectedSegmentIndex == 1);
     BOOL appearance = (self.backgroundControl.selectedSegmentIndex == 2);
     
-    self.menuController.menuView.backgroundColor = (custom ? [UIColor purpleColor] : nil);
-    [JLNRMenuView appearance].backgroundColor = (appearance ? [UIColor yellowColor] : nil);
+    self.menuController.bar.backgroundColor = (custom ? [UIColor purpleColor] : nil);
+    [JLNRBar appearance].backgroundColor = (appearance ? [UIColor yellowColor] : nil);
     
     if (appearance) {
         self.footnoteLabel.hidden = NO;
@@ -98,8 +98,8 @@
     BOOL custom = (self.borderControl.selectedSegmentIndex == 1);
     BOOL appearance = (self.borderControl.selectedSegmentIndex == 2);
     
-    self.menuController.menuView.borderColor = (custom ? [UIColor greenColor] : nil);
-    [JLNRMenuView appearance].borderColor = (appearance ? [UIColor redColor] : nil);
+    self.menuController.bar.borderColor = (custom ? [UIColor greenColor] : nil);
+    [JLNRBar appearance].borderColor = (appearance ? [UIColor redColor] : nil);
 
     if (appearance) {
         self.footnoteLabel.hidden = NO;
@@ -110,7 +110,7 @@
 {
     BOOL appearance = (self.selectionIndicatorControl.selectedSegmentIndex == 1);
     
-    [JLNRMenuCell appearance].selectionIndicatorColor = (appearance ? [UIColor magentaColor] : nil);
+    [JLNRBarCell appearance].selectionIndicatorColor = (appearance ? [UIColor magentaColor] : nil);
     
     self.footnoteLabel.hidden = NO;
 }
@@ -119,7 +119,7 @@
 {
     BOOL appearance = (self.inactiveControl.selectedSegmentIndex == 1);
     
-    [JLNRMenuCell appearance].inactiveColor = (appearance ? [UIColor brownColor] : nil);
+    [JLNRBarCell appearance].inactiveColor = (appearance ? [UIColor brownColor] : nil);
     
     self.footnoteLabel.hidden = NO;
 }

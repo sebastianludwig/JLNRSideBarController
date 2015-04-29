@@ -1,14 +1,14 @@
 //
-//  JLNRMenuView.m
-//  JLNRMenuController
+//  JLNRBar.m
+//  JLNRSideBarController
 //
 //  Created by Julian Raschke on 23.04.15.
 //  Copyright (c) 2015 Julian Raschke. All rights reserved.
 //
 
-#import "JLNRMenuView.h"
-#import "JLNRMenuCell.h"
-#import "JLNRMenuBackgroundView.h"
+#import "JLNRBar.h"
+#import "JLNRBarCell.h"
+#import "JLNRBarBackgroundView.h"
 
 
 static CGFloat const kDefaultMenuWidth = 100;
@@ -17,7 +17,7 @@ static CGFloat const kDefaultTabBarHeight = 49;
 static CGFloat const kDefaultMaxContentWidth = 735;
 
 
-@interface JLNRMenuView () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface JLNRBar () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, weak) UIView *contentView;
 @property (nonatomic, weak, readwrite) UICollectionView *menu;
@@ -26,12 +26,12 @@ static CGFloat const kDefaultMaxContentWidth = 735;
 @end
 
 
-@implementation JLNRMenuView
+@implementation JLNRBar
 
 - (id)initWithFrame:(CGRect)frame
 {
     if ((self = [super initWithFrame:frame])) {
-        [self setupMenuView];
+        [self setupBar];
     }
     return self;
 }
@@ -39,12 +39,12 @@ static CGFloat const kDefaultMaxContentWidth = 735;
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     if ((self = [super initWithCoder:aDecoder])) {
-        [self setupMenuView];
+        [self setupBar];
     }
     return self;
 }
 
-- (void)setupMenuView
+- (void)setupBar
 {
     self.clipsToBounds = YES;
     
@@ -70,9 +70,9 @@ static CGFloat const kDefaultMaxContentWidth = 735;
     collectionView.dataSource = self;
     collectionView.delegate = self;
     collectionView.allowsMultipleSelection = YES;
-    [collectionView registerClass:[JLNRMenuCell class] forCellWithReuseIdentifier:@"Cell"];
+    [collectionView registerClass:[JLNRBarCell class] forCellWithReuseIdentifier:@"Cell"];
     
-    JLNRMenuBackgroundView *backgroundView = [JLNRMenuBackgroundView new];
+    JLNRBarBackgroundView *backgroundView = [JLNRBarBackgroundView new];
     backgroundView.borderColor = self.borderColor;
     backgroundView.backgroundColor = [UIColor colorWithRed:247.f/255 green:247.f/255 blue:247.f/255 alpha:1];
     collectionView.backgroundView = backgroundView;
@@ -153,7 +153,7 @@ static CGFloat const kDefaultMaxContentWidth = 735;
     _borderColor = borderColor;
     
     for (UICollectionView *collectionView in @[self.menu, self.tabBar]) {
-        JLNRMenuBackgroundView *backgroundView = (JLNRMenuBackgroundView *)collectionView.backgroundView;
+        JLNRBarBackgroundView *backgroundView = (JLNRBarBackgroundView *)collectionView.backgroundView;
         backgroundView.borderColor = borderColor;
     }
 }
@@ -163,7 +163,7 @@ static CGFloat const kDefaultMaxContentWidth = 735;
     [super setBackgroundColor:backgroundColor];
 
     for (UICollectionView *collectionView in @[self.menu, self.tabBar]) {
-        JLNRMenuBackgroundView *backgroundView = (JLNRMenuBackgroundView *)collectionView.backgroundView;
+        JLNRBarBackgroundView *backgroundView = (JLNRBarBackgroundView *)collectionView.backgroundView;
         
         if (backgroundColor) {
             backgroundView.backgroundColor = [UIColor clearColor];
@@ -179,14 +179,14 @@ static CGFloat const kDefaultMaxContentWidth = 735;
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return [self.delegate numberOfTabBarItemsForMenuView:self];
+    return [self.delegate numberOfTabBarItemsForBar:self];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITabBarItem *tabBarItem = [self.delegate menuView:self tabBarItemForIndex:indexPath.item];
+    UITabBarItem *tabBarItem = [self.delegate bar:self tabBarItemForIndex:indexPath.item];
     
-    JLNRMenuCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
+    JLNRBarCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
     [cell setupWithTabBarItem:tabBarItem];
     return cell;
 }
@@ -196,7 +196,7 @@ static CGFloat const kDefaultMaxContentWidth = 735;
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     self.selectedIndex = indexPath.item;
-    [self.delegate menuView:self didSelectIndex:indexPath.item];
+    [self.delegate bar:self didSelectIndex:indexPath.item];
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath

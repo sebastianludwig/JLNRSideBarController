@@ -1,18 +1,19 @@
 //
-//  JLNRMenuCell.m
-//  JLNRMenuController
+//  JLNRBarCell.m
+//  JLNRSideBarController
 //
 //  Created by Julian Raschke on 23.04.15.
 //  Copyright (c) 2015 Julian Raschke. All rights reserved.
 //
 
-#import "JLNRMenuCell.h"
+#import "JLNRBarCell.h"
 
 
 static CGFloat const kImageViewSize = 33;
+static CGFloat const kImageLabelSpacing = 2;
 
 
-@interface JLNRMenuCell ()
+@interface JLNRBarCell ()
 
 @property (nonatomic, weak) UIImageView *imageView;
 @property (nonatomic, weak) UILabel *label;
@@ -20,7 +21,7 @@ static CGFloat const kImageViewSize = 33;
 @end
 
 
-@implementation JLNRMenuCell
+@implementation JLNRBarCell
 
 #pragma mark - Initialization
 
@@ -77,18 +78,20 @@ static CGFloat const kImageViewSize = 33;
     
     CGSize availableSize = self.bounds.size;
     
+    CGFloat spacing = (availableSize.height > availableSize.width ? kImageLabelSpacing : 0);
+    
     CGRect imageViewFrame = CGRectMake(0, 0, kImageViewSize, kImageViewSize);
     [self.label sizeToFit];
     CGRect labelFrame = self.label.frame;
     
-    CGFloat totalContentHeight = imageViewFrame.size.height + labelFrame.size.height;
+    CGFloat totalContentHeight = imageViewFrame.size.height + labelFrame.size.height + spacing;
     
     imageViewFrame.origin.x = round((availableSize.width - imageViewFrame.size.width) / 2);
     imageViewFrame.origin.y = floor((availableSize.height - totalContentHeight) / 2);
     self.imageView.frame = imageViewFrame;
     
     labelFrame.origin.x = round((availableSize.width - labelFrame.size.width) / 2);
-    labelFrame.origin.y = ceil(CGRectGetMaxY(imageViewFrame));
+    labelFrame.origin.y = ceil(CGRectGetMaxY(imageViewFrame)) + spacing;
     self.label.frame = labelFrame;
 }
 

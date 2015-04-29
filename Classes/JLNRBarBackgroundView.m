@@ -1,14 +1,14 @@
 //
-//  JLNRMenuBackgroundView.m
+//  JLNRBarBackgroundView.m
 //  Pods
 //
 //  Created by Julian Raschke on 27.04.15.
 //
 //
 
-#import "JLNRMenuBackgroundView.h"
+#import "JLNRBarBackgroundView.h"
 
-@implementation JLNRMenuBackgroundView
+@implementation JLNRBarBackgroundView
 
 - (void)setBorderColor:(UIColor *)borderColor
 {

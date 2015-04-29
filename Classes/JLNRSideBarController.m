@@ -1,35 +1,35 @@
 //
-//  JLNRMenuController.m
-//  JLNRMenuController
+//  JLNRSideBarController.m
+//  JLNRSideBarController
 //
 //  Created by Julian Raschke on 23.04.15.
 //  Copyright (c) 2015 Julian Raschke. All rights reserved.
 //
 
-#import "JLNRMenuController.h"
+#import "JLNRSideBarController.h"
 
 
-@interface JLNRMenuController () <JLNRMenuViewDelegate>
+@interface JLNRSideBarController () <JLNRBarDelegate>
 
 @end
 
 
-@implementation JLNRMenuController
+@implementation JLNRSideBarController
 
 #pragma mark - UIViewController
 
 - (void)loadView
 {
-    JLNRMenuView *menuView = [JLNRMenuView new];
-    menuView.delegate = self;
-    self.view = menuView;
+    JLNRBar *bar = [JLNRBar new];
+    bar.delegate = self;
+    self.view = bar;
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
-    if ([self.menuView.contentView.subviews count] == 0) {
+    if ([self.bar.contentView.subviews count] == 0) {
         // Open default tab if nothing else has been shown before
         self.selectedIndex = 0;
     }
@@ -37,14 +37,14 @@
 
 #pragma mark - Interaction with the menu view
 
-- (JLNRMenuView *)menuView
+- (JLNRBar *)bar
 {
-    return (JLNRMenuView *)self.view;
+    return (JLNRBar *)self.view;
 }
 
 - (NSInteger)selectedIndex
 {
-    return self.menuView.selectedIndex;
+    return self.bar.selectedIndex;
 }
 
 - (void)setSelectedIndex:(NSInteger)selectedIndex
@@ -60,11 +60,11 @@
     
     UIViewController *newViewController = [self selectedViewController];
     [self addChildViewController:newViewController];
-    newViewController.view.frame = self.menuView.contentView.bounds;
-    [self.menuView.contentView addSubview:newViewController.view];
+    newViewController.view.frame = self.bar.contentView.bounds;
+    [self.bar.contentView addSubview:newViewController.view];
     [newViewController didMoveToParentViewController:self];
 
-    self.menuView.selectedIndex = selectedIndex;
+    self.bar.selectedIndex = selectedIndex;
     
     [self setNeedsStatusBarAppearanceUpdate];
 }
@@ -82,7 +82,7 @@
     [oldViewController removeFromParentViewController];
     
     _viewControllers = [viewControllers copy];
-    [self.menuView reloadData];
+    [self.bar reloadData];
     // TODO - select and show first view controller
 }
 
@@ -122,20 +122,20 @@
     return YES;
 }
 
-#pragma mark - JLNRMenuViewDelegate
+#pragma mark - JLNRBarDelegate
 
-- (NSInteger)numberOfTabBarItemsForMenuView:(JLNRMenuView *)menuView
+- (NSInteger)numberOfTabBarItemsForBar:(JLNRBar *)bar
 {
     return [self.viewControllers count];
 }
 
-- (UITabBarItem *)menuView:(JLNRMenuView *)menuView tabBarItemForIndex:(NSInteger)index
+- (UITabBarItem *)bar:(JLNRBar *)bar tabBarItemForIndex:(NSInteger)index
 {
     UIViewController *viewController = self.viewControllers[index];
     return viewController.tabBarItem;
 }
 
-- (void)menuView:(JLNRMenuView *)menuView didSelectIndex:(NSInteger)selectedIndex
+- (void)bar:(JLNRBar *)bar didSelectIndex:(NSInteger)selectedIndex
 {
     self.selectedIndex = selectedIndex;
 }
