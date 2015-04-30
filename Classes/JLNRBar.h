@@ -14,7 +14,7 @@
 
 @interface JLNRBar : UIView
 
-@property (nonatomic) CGFloat menuWidth UI_APPEARANCE_SELECTOR;
+@property (nonatomic) CGFloat sideBarWidth UI_APPEARANCE_SELECTOR;
 @property (nonatomic) CGFloat maxContentWidth UI_APPEARANCE_SELECTOR;
 @property (nonatomic) UIColor *borderColor UI_APPEARANCE_SELECTOR;
 

@@ -11,10 +11,13 @@
 #import "JLNRBarBackgroundView.h"
 
 
-static CGFloat const kDefaultMenuWidth = 100;
+static CGFloat const kDefaultSideBarWidth = 100;
 static CGFloat const kDefaultTabBarHeight = 49;
 // This happens to be (longer side of iPhone 6 Plus minus 1), i.e. by default we show the side menu on iPhone 6 Plus or an iPads in landscape.
 static CGFloat const kDefaultMaxContentWidth = 735;
+
+static CGFloat const kVerticalItemHeight = 66;
+static CGFloat const kVerticalItemSpacing = 22;
 
 
 @interface JLNRBar () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
@@ -49,7 +52,7 @@ static CGFloat const kDefaultMaxContentWidth = 735;
     self.clipsToBounds = YES;
     
     _maxContentWidth = kDefaultMaxContentWidth;
-    _menuWidth = kDefaultMenuWidth;
+    _sideBarWidth = kDefaultSideBarWidth;
     
     self.menu = [self createCollectionView];
     self.tabBar = [self createCollectionView];
@@ -62,8 +65,11 @@ static CGFloat const kDefaultMaxContentWidth = 735;
 - (UICollectionView *)createCollectionView
 {
     UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
+    layout.scrollDirection = UICollectionViewScrollDirectionVertical;
+    // Horizontal spacing
     layout.minimumInteritemSpacing = 0;
-    layout.minimumLineSpacing = 0;
+    // Vertical spacing
+    layout.minimumLineSpacing = kVerticalItemSpacing;
     
     UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
     collectionView.scrollEnabled = NO;
@@ -92,8 +98,8 @@ static CGFloat const kDefaultMaxContentWidth = 735;
     
     CGRect contentFrame = bounds;
     if (useVerticalMenu) {
-        contentFrame.origin.x += self.menuWidth;
-        contentFrame.size.width -= self.menuWidth;
+        contentFrame.origin.x += self.sideBarWidth;
+        contentFrame.size.width -= self.sideBarWidth;
         self.contentView.frame = contentFrame;
     }
     else {
@@ -111,9 +117,9 @@ static CGFloat const kDefaultMaxContentWidth = 735;
     [self.tabBar.collectionViewLayout invalidateLayout];
     
     CGRect menuFrame = bounds;
-    menuFrame.size.width = self.menuWidth;
+    menuFrame.size.width = self.sideBarWidth;
     if (!useVerticalMenu) {
-        menuFrame.origin.y -= self.menuWidth;
+        menuFrame.origin.y -= self.sideBarWidth;
     }
     self.menu.frame = menuFrame;
     [self.menu.collectionViewLayout invalidateLayout];
@@ -213,11 +219,22 @@ static CGFloat const kDefaultMaxContentWidth = 735;
         return CGSizeMake(width, frame.size.height);
     }
     else {
-        CGFloat height = ceil(frame.size.height / numberOfCells);
-        if (indexPath.item == numberOfCells - 1) {
-            height = frame.size.height - (numberOfCells - 1) * height;
-        }
-        return CGSizeMake(frame.size.width, height);
+        return CGSizeMake(frame.size.width, kVerticalItemHeight);
+    }
+}
+
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
+{
+    NSInteger numberOfCells = [self collectionView:collectionView numberOfItemsInSection:section];
+    
+    CGRect frame = collectionView.frame;
+    
+    if (frame.size.width > frame.size.height) {
+        return UIEdgeInsetsZero;
+    }
+    else {
+        CGFloat emptySpace = frame.size.height - numberOfCells * kVerticalItemHeight - (numberOfCells - 1) * kVerticalItemSpacing;
+        return UIEdgeInsetsMake(emptySpace / 2, 0, emptySpace / 2, 0);
     }
 }
 

@@ -10,7 +10,8 @@
 
 
 static CGFloat const kImageViewSize = 33;
-static CGFloat const kImageLabelSpacing = 2;
+static CGFloat const kImageLabelHorizontalSpacing = 20;
+static CGFloat const kMinimumWidthForHorizontalLayout = 150;
 
 
 @interface JLNRBarCell ()
@@ -48,7 +49,6 @@ static CGFloat const kImageLabelSpacing = 2;
     self.imageView = imageView;
     
     UILabel *label = [[UILabel alloc] initWithFrame:self.bounds];
-    label.font = [UIFont systemFontOfSize:10];
     label.textColor = [self tintColor];
     label.backgroundColor = [UIColor clearColor];
     [self addSubview:label];
@@ -78,21 +78,42 @@ static CGFloat const kImageLabelSpacing = 2;
     
     CGSize availableSize = self.bounds.size;
     
-    CGFloat spacing = (availableSize.height > availableSize.width ? kImageLabelSpacing : 0);
+    if (availableSize.width < kMinimumWidthForHorizontalLayout) {
+        // Vertical layout - mimick the system UITabBar(Item)
+
+        CGFloat spacing = 0; //(availableSize.height > availableSize.width ? kImageLabelSpacing : 0);
+        self.label.font = [UIFont systemFontOfSize:10];
+        
+        CGRect imageViewFrame = CGRectMake(0, 0, kImageViewSize, kImageViewSize);
+        [self.label sizeToFit];
+        CGRect labelFrame = self.label.frame;
+        
+        CGFloat totalContentHeight = imageViewFrame.size.height + labelFrame.size.height + spacing;
+        
+        imageViewFrame.origin.x = round((availableSize.width - imageViewFrame.size.width) / 2);
+        imageViewFrame.origin.y = floor((availableSize.height - totalContentHeight) / 2);
+        self.imageView.frame = imageViewFrame;
+        
+        labelFrame.origin.x = round((availableSize.width - labelFrame.size.width) / 2);
+        labelFrame.origin.y = ceil(CGRectGetMaxY(imageViewFrame)) + spacing;
+        self.label.frame = labelFrame;
+    }
+    else {
+        // Horizontal layout - should look more like a table-based side menu
+        
+        self.label.font = [UIFont boldSystemFontOfSize:14];
+        
+        CGRect imageViewFrame = CGRectMake(ceil(availableSize.width * 0.1), 0, kImageViewSize, kImageViewSize);
+        imageViewFrame.origin.y = round((availableSize.height - kImageViewSize) / 2);
+        self.imageView.frame = imageViewFrame;
+        
+        [self.label sizeToFit];
+        CGRect labelFrame = self.label.frame;
+        labelFrame.origin.x = CGRectGetMaxX(imageViewFrame) + kImageLabelHorizontalSpacing;
+        labelFrame.origin.y = round((availableSize.height - labelFrame.size.height) / 2);
+        self.label.frame = labelFrame;
+    }
     
-    CGRect imageViewFrame = CGRectMake(0, 0, kImageViewSize, kImageViewSize);
-    [self.label sizeToFit];
-    CGRect labelFrame = self.label.frame;
-    
-    CGFloat totalContentHeight = imageViewFrame.size.height + labelFrame.size.height + spacing;
-    
-    imageViewFrame.origin.x = round((availableSize.width - imageViewFrame.size.width) / 2);
-    imageViewFrame.origin.y = floor((availableSize.height - totalContentHeight) / 2);
-    self.imageView.frame = imageViewFrame;
-    
-    labelFrame.origin.x = round((availableSize.width - labelFrame.size.width) / 2);
-    labelFrame.origin.y = ceil(CGRectGetMaxY(imageViewFrame)) + spacing;
-    self.label.frame = labelFrame;
 }
 
 #pragma mark - Tint color & selection indicator color
