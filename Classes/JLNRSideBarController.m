@@ -58,13 +58,13 @@
     [oldViewController.view removeFromSuperview];
     [oldViewController removeFromParentViewController];
     
+    self.bar.selectedIndex = selectedIndex;
+    
     UIViewController *newViewController = [self selectedViewController];
     [self addChildViewController:newViewController];
     newViewController.view.frame = self.bar.contentView.bounds;
     [self.bar.contentView addSubview:newViewController.view];
     [newViewController didMoveToParentViewController:self];
-
-    self.bar.selectedIndex = selectedIndex;
     
     [self setNeedsStatusBarAppearanceUpdate];
 }
@@ -72,6 +72,13 @@
 - (UIViewController *)selectedViewController
 {
     return self.viewControllers[self.selectedIndex];
+}
+
+- (void)setSelectedViewController:(UIViewController *)selectedViewController
+{
+    NSInteger index = [self.viewControllers indexOfObject:selectedViewController];
+    NSAssert(index != NSNotFound, @"passing an unknown view controller to –[JLNRSideBarController setSelectedViewController:]");
+    self.selectedIndex = index;
 }
 
 - (void)setViewControllers:(NSArray *)viewControllers
