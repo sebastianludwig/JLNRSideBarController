@@ -11,7 +11,7 @@
 
 static CGFloat const kImageViewSize = 33;
 static CGFloat const kImageLabelHorizontalSpacing = 20;
-static CGFloat const kMinimumWidthForHorizontalLayout = 150;
+static CGFloat const kMinimumWidthForHorizontalLayout = 200;
 
 
 @interface JLNRBarCell ()
