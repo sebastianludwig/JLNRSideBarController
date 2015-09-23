@@ -13,8 +13,8 @@
 
 static CGFloat const kDefaultLeftBarWidth = 100;
 static CGFloat const kDefaultBottomBarHeight = 49;
-// This happens to be (longer side of iPhone 6 Plus minus 1), i.e. by default we show the side menu on iPhone 6 Plus or an iPads in landscape.
-static CGFloat const kDefaultMaxContentWidth = 735;
+// This happens to be "longer side of iPhone 6 Plus minus 1", i.e. by default we show the side menu on iPhone 6 Plus or an iPads in landscape.
+static CGFloat const kDefaultMaxContentWidthForBottomBar = 735;
 
 static CGFloat const kVerticalItemHeight = 66;
 static CGFloat const kVerticalItemSpacing = 22;
@@ -51,7 +51,7 @@ static CGFloat const kVerticalItemSpacing = 22;
 {
     self.clipsToBounds = YES;
     
-    _maxContentWidth = kDefaultMaxContentWidth;
+    _maxContentWidthForBottomBar = kDefaultMaxContentWidthForBottomBar;
     _barWidth = kDefaultLeftBarWidth;
     
     self.leftBar = [self createCollectionView];
@@ -94,7 +94,7 @@ static CGFloat const kVerticalItemSpacing = 22;
     [super layoutSubviews];
     
     CGRect bounds = self.bounds;
-    BOOL useVerticalMenu = (bounds.size.width > self.maxContentWidth && bounds.size.width > bounds.size.height);
+    BOOL useVerticalMenu = (bounds.size.width > self.maxContentWidthForBottomBar && bounds.size.width > bounds.size.height);
     
     CGRect contentFrame = bounds;
     if (useVerticalMenu) {

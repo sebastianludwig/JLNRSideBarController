@@ -34,7 +34,7 @@
 {
     [super viewWillAppear:animated];
     
-    CGFloat contentWidth = self.menuController.barView.maxContentWidth;
+    CGFloat contentWidth = self.menuController.barView.maxContentWidthForBottomBar;
     self.contentWidthSlider.value = contentWidth;
     self.contentWidthLabel.text = [NSString stringWithFormat:@"%@px", @(contentWidth)];
     
@@ -76,7 +76,7 @@
 - (IBAction)changeContentWidth:(id)sender
 {
     CGFloat contentWidth = round(self.contentWidthSlider.value);
-    self.menuController.barView.maxContentWidth = contentWidth;
+    self.menuController.barView.maxContentWidthForBottomBar = contentWidth;
     self.contentWidthLabel.text = [NSString stringWithFormat:@"%@px", @(contentWidth)];
 }
 
