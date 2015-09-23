@@ -30,6 +30,12 @@ static CGFloat const kVerticalItemSpacing = 22;
 
 
 @implementation JLNRBarView
+{
+    NSLayoutConstraint *leftBarWidthConstraint;
+    NSLayoutConstraint *bottomBarHeightConstraint;
+    NSLayoutConstraint *contentViewLeftConstraint;
+    NSLayoutConstraint *contentViewBottomConstraint;
+}
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -58,8 +64,28 @@ static CGFloat const kVerticalItemSpacing = 22;
     self.bottomBar = [self createCollectionView];
     
     UIView *contentView = [UIView new];
+    contentView.translatesAutoresizingMaskIntoConstraints = NO;
     [self addSubview:contentView];
     self.contentView = contentView;
+
+    [self addConstraints:@"H:|-0-[bottomBar]-0-|" toView:self];
+    [self addConstraints:@"V:|-0-[leftBar]-0-|" toView:self];
+    [self addConstraints:@"H:[leftBar]-0-[contentView]-0-|" toView:self];
+    [self addConstraints:@"V:|-0-[contentView]-0-[bottomBar]" toView:self];
+    
+    leftBarWidthConstraint = [self addConstraints:@"H:[leftBar(defaultLeftBarWidth)]" toView:self.leftBar];
+    bottomBarHeightConstraint = [self addConstraints:@"V:[bottomBar(defaultBottomBarHeight)]" toView:self.bottomBar];
+    contentViewLeftConstraint = [self addConstraints:@"H:|-(defaultLeftBarWidth)-[contentView]" toView:self];
+    contentViewBottomConstraint = [self addConstraints:@"V:[contentView]-(defaultBottomBarHeight)-|" toView:self];
+}
+
+- (NSLayoutConstraint *)addConstraints:(NSString *)visualFormat toView:(UIView *)view
+{
+    NSDictionary *metrics = @{ @"defaultLeftBarWidth": @(kDefaultLeftBarWidth), @"defaultBottomBarHeight": @(kDefaultBottomBarHeight) };
+    NSDictionary *viewBindings = @{ @"leftBar": self.leftBar, @"bottomBar": self.bottomBar, @"contentView": self.contentView };
+    NSArray *constraints = [NSLayoutConstraint constraintsWithVisualFormat:visualFormat options:0 metrics:metrics views:viewBindings];
+    [view addConstraints:constraints];
+    return [constraints firstObject];
 }
 
 - (UICollectionView *)createCollectionView
@@ -72,6 +98,7 @@ static CGFloat const kVerticalItemSpacing = 22;
     layout.minimumLineSpacing = kVerticalItemSpacing;
     
     UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
+    collectionView.translatesAutoresizingMaskIntoConstraints = NO;
     collectionView.scrollEnabled = NO;
     collectionView.dataSource = self;
     collectionView.delegate = self;
@@ -94,37 +121,17 @@ static CGFloat const kVerticalItemSpacing = 22;
     [super layoutSubviews];
     
     CGRect bounds = self.bounds;
-    BOOL useVerticalMenu = (bounds.size.width > self.maxContentWidthForBottomBar && bounds.size.width > bounds.size.height);
+    BOOL useLeftBar = (bounds.size.width > self.maxContentWidthForBottomBar && bounds.size.width > bounds.size.height);
     
-    CGRect contentFrame = bounds;
-    if (useVerticalMenu) {
-        contentFrame.origin.x += self.sideBarWidth;
-        contentFrame.size.width -= self.sideBarWidth;
-        self.contentView.frame = contentFrame;
+    if (useLeftBar) {
+        contentViewBottomConstraint.constant = 0;
+        contentViewLeftConstraint.constant = leftBarWidthConstraint.constant;
+        [self.leftBar.collectionViewLayout invalidateLayout];
+    } else {
+        contentViewBottomConstraint.constant = bottomBarHeightConstraint.constant;
+        contentViewLeftConstraint.constant = 0;
+        [self.bottomBar.collectionViewLayout invalidateLayout];
     }
-    else {
-        contentFrame.size.height -= kDefaultBottomBarHeight;
-        self.contentView.frame = contentFrame;
-    }
-    
-    CGRect bottomBarFrame = bounds;
-    bottomBarFrame.origin.y = bottomBarFrame.size.height;
-    bottomBarFrame.size.height = kDefaultBottomBarHeight;
-    if (!useVerticalMenu) {
-        bottomBarFrame.origin.y -= kDefaultBottomBarHeight;
-    }
-    self.bottomBar.frame = bottomBarFrame;
-    [self.bottomBar.collectionViewLayout invalidateLayout];
-    
-    CGRect leftBarFrame = bounds;
-    leftBarFrame.size.width = self.sideBarWidth;
-    if (!useVerticalMenu) {
-        leftBarFrame.origin.y -= self.sideBarWidth;
-    }
-    self.leftBar.frame = leftBarFrame;
-    [self.leftBar.collectionViewLayout invalidateLayout];
-    
-    [self sendSubviewToBack:(useVerticalMenu ? self.bottomBar : self.leftBar)];
 }
 
 - (NSInteger)selectedIndex
