@@ -1,13 +1,13 @@
 //
 //  StylingViewController.m
-//  JLNRSideBarControllerExample
+//  JLNRBarControllerExample
 //
 //  Created by Julian Raschke on 27.04.15.
 //  Copyright (c) 2015 Julian Raschke. All rights reserved.
 //
 
 #import "StylingViewController.h"
-#import "JLNRSideBarController.h"
+#import "JLNRBarController.h"
 
 
 @interface StylingViewController ()
@@ -25,33 +25,33 @@
 
 @implementation StylingViewController
 
-- (JLNRSideBarController *)menuController
+- (JLNRBarController *)menuController
 {
-    return (JLNRSideBarController *)self.navigationController.parentViewController;
+    return (JLNRBarController *)self.navigationController.parentViewController;
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
-    CGFloat contentWidth = self.menuController.bar.maxContentWidth;
+    CGFloat contentWidth = self.menuController.barView.maxContentWidth;
     self.contentWidthSlider.value = contentWidth;
     self.contentWidthLabel.text = [NSString stringWithFormat:@"%@px", @(contentWidth)];
     
-    if ([JLNRBar appearance].backgroundColor) {
+    if ([JLNRBarView appearance].backgroundColor) {
         self.backgroundControl.selectedSegmentIndex = 2;
     }
-    else if (self.menuController.bar.backgroundColor) {
+    else if (self.menuController.barView.backgroundColor) {
         self.backgroundControl.selectedSegmentIndex = 1;
     }
     else {
         self.backgroundControl.selectedSegmentIndex = 0;
     }
     
-    if ([JLNRBar appearance].borderColor) {
+    if ([JLNRBarView appearance].borderColor) {
         self.borderControl.selectedSegmentIndex = 2;
     }
-    else if (self.menuController.bar.borderColor) {
+    else if (self.menuController.barView.borderColor) {
         self.borderControl.selectedSegmentIndex = 1;
     }
     else {
@@ -76,7 +76,7 @@
 - (IBAction)changeContentWidth:(id)sender
 {
     CGFloat contentWidth = round(self.contentWidthSlider.value);
-    self.menuController.bar.maxContentWidth = contentWidth;
+    self.menuController.barView.maxContentWidth = contentWidth;
     self.contentWidthLabel.text = [NSString stringWithFormat:@"%@px", @(contentWidth)];
 }
 
@@ -85,8 +85,8 @@
     BOOL custom = (self.backgroundControl.selectedSegmentIndex == 1);
     BOOL appearance = (self.backgroundControl.selectedSegmentIndex == 2);
     
-    self.menuController.bar.backgroundColor = (custom ? [UIColor purpleColor] : nil);
-    [JLNRBar appearance].backgroundColor = (appearance ? [UIColor yellowColor] : nil);
+    self.menuController.barView.backgroundColor = (custom ? [UIColor purpleColor] : nil);
+    [JLNRBarView appearance].backgroundColor = (appearance ? [UIColor yellowColor] : nil);
     
     if (appearance) {
         self.footnoteLabel.hidden = NO;
@@ -98,8 +98,8 @@
     BOOL custom = (self.borderControl.selectedSegmentIndex == 1);
     BOOL appearance = (self.borderControl.selectedSegmentIndex == 2);
     
-    self.menuController.bar.borderColor = (custom ? [UIColor greenColor] : nil);
-    [JLNRBar appearance].borderColor = (appearance ? [UIColor redColor] : nil);
+    self.menuController.barView.borderColor = (custom ? [UIColor greenColor] : nil);
+    [JLNRBarView appearance].borderColor = (appearance ? [UIColor redColor] : nil);
 
     if (appearance) {
         self.footnoteLabel.hidden = NO;

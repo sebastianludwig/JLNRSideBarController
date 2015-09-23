@@ -1,6 +1,6 @@
 //
-//  JLNRSideBarController.h
-//  JLNRSideBarController
+//  JLNRBarController.h
+//  JLNRBarController
 //
 //  Created by Julian Raschke on 23.04.15.
 //  Copyright (c) 2015 Julian Raschke. All rights reserved.
@@ -10,15 +10,15 @@
 
 // Let this header function as an umbrella header.
 #import "JLNRBarCell.h"
-#import "JLNRBar.h"
+#import "JLNRBarView.h"
 
 
-@interface JLNRSideBarController : UIViewController
+@interface JLNRBarController : UIViewController
 
 @property (nonatomic, copy) NSArray *viewControllers;
 @property (nonatomic, weak) UIViewController *selectedViewController;
 @property (nonatomic) NSInteger selectedIndex;
 
-@property (nonatomic, readonly) JLNRBar *bar;
+@property (nonatomic, readonly) JLNRBarView *barView;
 
 @end

@@ -1,6 +1,6 @@
 //
-//  JLNRBar.h
-//  JLNRSideBarController
+//  JLNRBarView.h
+//  JLNRBarController
 //
 //  Created by Julian Raschke on 23.04.15.
 //  Copyright (c) 2015 Julian Raschke. All rights reserved.
@@ -9,10 +9,10 @@
 #import <UIKit/UIKit.h>
 
 
-@protocol JLNRBarDelegate;
+@protocol JLNRBarViewDelegate;
 
 
-@interface JLNRBar : UIView
+@interface JLNRBarView : UIView
 
 @property (nonatomic) CGFloat sideBarWidth UI_APPEARANCE_SELECTOR;
 @property (nonatomic) CGFloat maxContentWidth UI_APPEARANCE_SELECTOR;
@@ -20,7 +20,7 @@
 
 @property (nonatomic, weak, readonly) UIView *contentView;
 
-@property (nonatomic, weak) id<JLNRBarDelegate> delegate;
+@property (nonatomic, weak) id<JLNRBarViewDelegate> delegate;
 @property (nonatomic) NSInteger selectedIndex;
 
 - (void)reloadData;
@@ -28,10 +28,10 @@
 @end
 
 
-@protocol JLNRBarDelegate
+@protocol JLNRBarViewDelegate
 
-- (NSInteger)numberOfTabBarItemsForBar:(JLNRBar *)bar;
-- (UITabBarItem *)bar:(JLNRBar *)bar tabBarItemForIndex:(NSInteger)index;
-- (void)bar:(JLNRBar *)bar didSelectIndex:(NSInteger)selectedIndex;
+- (NSInteger)numberOfTabBarItemsForBarView:(JLNRBarView *)barView;
+- (UITabBarItem *)barView:(JLNRBarView *)barView tabBarItemForIndex:(NSInteger)index;
+- (void)barView:(JLNRBarView *)barView didSelectIndex:(NSInteger)selectedIndex;
 
 @end

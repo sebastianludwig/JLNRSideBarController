@@ -1,13 +1,13 @@
 //
 //  ViewController.m
-//  JLNRSideBarControllerExample
+//  JLNRBarControllerExample
 //
 //  Created by Julian Raschke on 27.04.15.
 //  Copyright (c) 2015 Julian Raschke. All rights reserved.
 //
 
 #import "IntroViewController.h"
-#import "JLNRSideBarController.h"
+#import "JLNRBarController.h"
 
 
 @implementation IntroViewController
@@ -15,7 +15,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"UnstyledDemo"]) {
-        JLNRSideBarController *destination = segue.destinationViewController;
+        JLNRBarController *destination = segue.destinationViewController;
         
         NSMutableArray *viewControllers = [NSMutableArray new];
         for (NSInteger i = 1; i <= 4; ++i) {

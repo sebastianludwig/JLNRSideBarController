@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		D4121E601AF17475002C6A7B /* JLNRBarBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4121E591AF17475002C6A7B /* JLNRBarBackgroundView.m */; };
 		D4121E611AF17475002C6A7B /* JLNRBarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D4121E5B1AF17475002C6A7B /* JLNRBarCell.m */; };
-		D4121E621AF17475002C6A7B /* JLNRBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D4121E5D1AF17475002C6A7B /* JLNRBar.m */; };
-		D4121E631AF17475002C6A7B /* JLNRSideBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4121E5F1AF17475002C6A7B /* JLNRSideBarController.m */; };
+		D4121E621AF17475002C6A7B /* JLNRBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4121E5D1AF17475002C6A7B /* JLNRBarView.m */; };
+		D4121E631AF17475002C6A7B /* JLNRBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4121E5F1AF17475002C6A7B /* JLNRBarController.m */; };
 		D4E81D601AEE8DB9006F6502 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E81D5F1AEE8DB9006F6502 /* main.m */; };
 		D4E81D631AEE8DB9006F6502 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E81D621AEE8DB9006F6502 /* AppDelegate.m */; };
 		D4E81D661AEE8DB9006F6502 /* IntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E81D651AEE8DB9006F6502 /* IntroViewController.m */; };
@@ -25,11 +25,11 @@
 		D4121E591AF17475002C6A7B /* JLNRBarBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JLNRBarBackgroundView.m; path = ../Classes/JLNRBarBackgroundView.m; sourceTree = "<group>"; };
 		D4121E5A1AF17475002C6A7B /* JLNRBarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JLNRBarCell.h; path = ../Classes/JLNRBarCell.h; sourceTree = "<group>"; };
 		D4121E5B1AF17475002C6A7B /* JLNRBarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JLNRBarCell.m; path = ../Classes/JLNRBarCell.m; sourceTree = "<group>"; };
-		D4121E5C1AF17475002C6A7B /* JLNRBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JLNRBar.h; path = ../Classes/JLNRBar.h; sourceTree = "<group>"; };
-		D4121E5D1AF17475002C6A7B /* JLNRBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JLNRBar.m; path = ../Classes/JLNRBar.m; sourceTree = "<group>"; };
-		D4121E5E1AF17475002C6A7B /* JLNRSideBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JLNRSideBarController.h; path = ../Classes/JLNRSideBarController.h; sourceTree = "<group>"; };
-		D4121E5F1AF17475002C6A7B /* JLNRSideBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JLNRSideBarController.m; path = ../Classes/JLNRSideBarController.m; sourceTree = "<group>"; };
-		D4E81D5A1AEE8DB9006F6502 /* JLNRSideBarControllerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JLNRSideBarControllerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4121E5C1AF17475002C6A7B /* JLNRBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JLNRBarView.h; path = ../Classes/JLNRBarView.h; sourceTree = "<group>"; };
+		D4121E5D1AF17475002C6A7B /* JLNRBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JLNRBarView.m; path = ../Classes/JLNRBarView.m; sourceTree = "<group>"; };
+		D4121E5E1AF17475002C6A7B /* JLNRBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JLNRBarController.h; path = ../Classes/JLNRBarController.h; sourceTree = "<group>"; };
+		D4121E5F1AF17475002C6A7B /* JLNRBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JLNRBarController.m; path = ../Classes/JLNRBarController.m; sourceTree = "<group>"; };
+		D4E81D5A1AEE8DB9006F6502 /* JLNRBarControllerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JLNRBarControllerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4E81D5E1AEE8DB9006F6502 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4E81D5F1AEE8DB9006F6502 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D4E81D611AEE8DB9006F6502 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -66,7 +66,7 @@
 		D4E81D5B1AEE8DB9006F6502 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D4E81D5A1AEE8DB9006F6502 /* JLNRSideBarControllerExample.app */,
+				D4E81D5A1AEE8DB9006F6502 /* JLNRBarControllerExample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -104,10 +104,10 @@
 				D4121E591AF17475002C6A7B /* JLNRBarBackgroundView.m */,
 				D4121E5A1AF17475002C6A7B /* JLNRBarCell.h */,
 				D4121E5B1AF17475002C6A7B /* JLNRBarCell.m */,
-				D4121E5C1AF17475002C6A7B /* JLNRBar.h */,
-				D4121E5D1AF17475002C6A7B /* JLNRBar.m */,
-				D4121E5E1AF17475002C6A7B /* JLNRSideBarController.h */,
-				D4121E5F1AF17475002C6A7B /* JLNRSideBarController.m */,
+				D4121E5C1AF17475002C6A7B /* JLNRBarView.h */,
+				D4121E5D1AF17475002C6A7B /* JLNRBarView.m */,
+				D4121E5E1AF17475002C6A7B /* JLNRBarController.h */,
+				D4121E5F1AF17475002C6A7B /* JLNRBarController.m */,
 			);
 			name = JLNRSideBarController;
 			sourceTree = "<group>";
@@ -115,9 +115,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D4E81D591AEE8DB9006F6502 /* JLNRSideBarControllerExample */ = {
+		D4E81D591AEE8DB9006F6502 /* JLNRBarControllerExample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D4E81D7D1AEE8DB9006F6502 /* Build configuration list for PBXNativeTarget "JLNRSideBarControllerExample" */;
+			buildConfigurationList = D4E81D7D1AEE8DB9006F6502 /* Build configuration list for PBXNativeTarget "JLNRBarControllerExample" */;
 			buildPhases = (
 				D4E81D561AEE8DB9006F6502 /* Sources */,
 				D4E81D571AEE8DB9006F6502 /* Frameworks */,
@@ -127,9 +127,9 @@
 			);
 			dependencies = (
 			);
-			name = JLNRSideBarControllerExample;
+			name = JLNRBarControllerExample;
 			productName = JLNRMenuControllerExample;
-			productReference = D4E81D5A1AEE8DB9006F6502 /* JLNRSideBarControllerExample.app */;
+			productReference = D4E81D5A1AEE8DB9006F6502 /* JLNRBarControllerExample.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -146,7 +146,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D4E81D551AEE8DB9006F6502 /* Build configuration list for PBXProject "JLNRSideBarControllerExample" */;
+			buildConfigurationList = D4E81D551AEE8DB9006F6502 /* Build configuration list for PBXProject "JLNRBarControllerExample" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -159,7 +159,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D4E81D591AEE8DB9006F6502 /* JLNRSideBarControllerExample */,
+				D4E81D591AEE8DB9006F6502 /* JLNRBarControllerExample */,
 			);
 		};
 /* End PBXProject section */
@@ -187,8 +187,8 @@
 				D4E81D921AEE92D4006F6502 /* StylingViewController.m in Sources */,
 				D4E81D631AEE8DB9006F6502 /* AppDelegate.m in Sources */,
 				D4E81D601AEE8DB9006F6502 /* main.m in Sources */,
-				D4121E621AF17475002C6A7B /* JLNRBar.m in Sources */,
-				D4121E631AF17475002C6A7B /* JLNRSideBarController.m in Sources */,
+				D4121E621AF17475002C6A7B /* JLNRBarView.m in Sources */,
+				D4121E631AF17475002C6A7B /* JLNRBarController.m in Sources */,
 				D4121E611AF17475002C6A7B /* JLNRBarCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -303,7 +303,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = JLNRBarControllerExample;
 			};
 			name = Debug;
 		};
@@ -313,14 +313,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = JLNRBarControllerExample;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D4E81D551AEE8DB9006F6502 /* Build configuration list for PBXProject "JLNRSideBarControllerExample" */ = {
+		D4E81D551AEE8DB9006F6502 /* Build configuration list for PBXProject "JLNRBarControllerExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D4E81D7B1AEE8DB9006F6502 /* Debug */,
@@ -329,7 +329,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D4E81D7D1AEE8DB9006F6502 /* Build configuration list for PBXNativeTarget "JLNRSideBarControllerExample" */ = {
+		D4E81D7D1AEE8DB9006F6502 /* Build configuration list for PBXNativeTarget "JLNRBarControllerExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D4E81D7E1AEE8DB9006F6502 /* Debug */,

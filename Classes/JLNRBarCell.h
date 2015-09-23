@@ -1,6 +1,6 @@
 //
 //  JLNRBarCell.h
-//  JLNRSideBarController
+//  JLNRBarController
 //
 //  Created by Julian Raschke on 23.04.15.
 //  Copyright (c) 2015 Julian Raschke. All rights reserved.

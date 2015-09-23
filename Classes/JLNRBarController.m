@@ -1,50 +1,50 @@
 //
-//  JLNRSideBarController.m
-//  JLNRSideBarController
+//  JLNRBarController.m
+//  JLNRBarController
 //
 //  Created by Julian Raschke on 23.04.15.
 //  Copyright (c) 2015 Julian Raschke. All rights reserved.
 //
 
-#import "JLNRSideBarController.h"
+#import "JLNRBarController.h"
 
 
-@interface JLNRSideBarController () <JLNRBarDelegate>
+@interface JLNRBarController () <JLNRBarViewDelegate>
 
 @end
 
 
-@implementation JLNRSideBarController
+@implementation JLNRBarController
 
 #pragma mark - UIViewController
 
 - (void)loadView
 {
-    JLNRBar *bar = [JLNRBar new];
-    bar.delegate = self;
-    self.view = bar;
+    JLNRBarView *barView = [JLNRBarView new];
+    barView.delegate = self;
+    self.view = barView;
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
-    if ([self.bar.contentView.subviews count] == 0) {
+    if ([self.barView.contentView.subviews count] == 0) {
         // Open default tab if nothing else has been shown before
         self.selectedIndex = 0;
     }
 }
 
-#pragma mark - Interaction with the menu view
+#pragma mark - Interaction with the bar view
 
-- (JLNRBar *)bar
+- (JLNRBarView *)barView
 {
-    return (JLNRBar *)self.view;
+    return (JLNRBarView *)self.view;
 }
 
 - (NSInteger)selectedIndex
 {
-    return self.bar.selectedIndex;
+    return self.barView.selectedIndex;
 }
 
 - (void)setSelectedIndex:(NSInteger)selectedIndex
@@ -58,12 +58,12 @@
     [oldViewController.view removeFromSuperview];
     [oldViewController removeFromParentViewController];
     
-    self.bar.selectedIndex = selectedIndex;
+    self.barView.selectedIndex = selectedIndex;
     
     UIViewController *newViewController = [self selectedViewController];
     [self addChildViewController:newViewController];
-    newViewController.view.frame = self.bar.contentView.bounds;
-    [self.bar.contentView addSubview:newViewController.view];
+    newViewController.view.frame = self.barView.contentView.bounds;
+    [self.barView.contentView addSubview:newViewController.view];
     [newViewController didMoveToParentViewController:self];
     
     [self setNeedsStatusBarAppearanceUpdate];
@@ -77,7 +77,7 @@
 - (void)setSelectedViewController:(UIViewController *)selectedViewController
 {
     NSInteger index = [self.viewControllers indexOfObject:selectedViewController];
-    NSAssert(index != NSNotFound, @"passing an unknown view controller to –[JLNRSideBarController setSelectedViewController:]");
+    NSAssert(index != NSNotFound, @"passing an unknown view controller to %s", __PRETTY_FUNCTION__);
     self.selectedIndex = index;
 }
 
@@ -89,7 +89,7 @@
     [oldViewController removeFromParentViewController];
     
     _viewControllers = [viewControllers copy];
-    [self.bar reloadData];
+    [self.barView reloadData];
     // TODO - select and show first view controller
 }
 
@@ -131,18 +131,18 @@
 
 #pragma mark - JLNRBarDelegate
 
-- (NSInteger)numberOfTabBarItemsForBar:(JLNRBar *)bar
+- (NSInteger)numberOfTabBarItemsForBarView:(JLNRBarView *)barView
 {
     return [self.viewControllers count];
 }
 
-- (UITabBarItem *)bar:(JLNRBar *)bar tabBarItemForIndex:(NSInteger)index
+- (UITabBarItem *)barView:(JLNRBarView *)barView tabBarItemForIndex:(NSInteger)index
 {
     UIViewController *viewController = self.viewControllers[index];
     return viewController.tabBarItem;
 }
 
-- (void)bar:(JLNRBar *)bar didSelectIndex:(NSInteger)selectedIndex
+- (void)barView:(JLNRBarView *)barView didSelectIndex:(NSInteger)selectedIndex
 {
     self.selectedIndex = selectedIndex;
 }

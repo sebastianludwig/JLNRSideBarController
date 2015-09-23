@@ -1,12 +1,12 @@
 //
-//  JLNRBar.m
-//  JLNRSideBarController
+//  JLNRBarView.m
+//  JLNRBarController
 //
 //  Created by Julian Raschke on 23.04.15.
 //  Copyright (c) 2015 Julian Raschke. All rights reserved.
 //
 
-#import "JLNRBar.h"
+#import "JLNRBarView.h"
 #import "JLNRBarCell.h"
 #import "JLNRBarBackgroundView.h"
 
@@ -20,7 +20,7 @@ static CGFloat const kVerticalItemHeight = 66;
 static CGFloat const kVerticalItemSpacing = 22;
 
 
-@interface JLNRBar () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface JLNRBarView () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, weak) UIView *contentView;
 @property (nonatomic, weak, readwrite) UICollectionView *menu;
@@ -29,7 +29,7 @@ static CGFloat const kVerticalItemSpacing = 22;
 @end
 
 
-@implementation JLNRBar
+@implementation JLNRBarView
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -137,7 +137,7 @@ static CGFloat const kVerticalItemSpacing = 22;
 {
     for (UICollectionView *collectionView in @[self.menu, self.tabBar]) {
         while ([collectionView.indexPathsForSelectedItems count] > 0) {
-            NSIndexPath *selection = [[collectionView indexPathsForSelectedItems] firstObject];
+            NSIndexPath *selection = [[collectionView indexPathsForSelectedItems] firstObject];     // why u no simply for loop?
             [collectionView deselectItemAtIndexPath:selection animated:NO];
         }
 
@@ -185,12 +185,12 @@ static CGFloat const kVerticalItemSpacing = 22;
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return [self.delegate numberOfTabBarItemsForBar:self];
+    return [self.delegate numberOfTabBarItemsForBarView:self];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITabBarItem *tabBarItem = [self.delegate bar:self tabBarItemForIndex:indexPath.item];
+    UITabBarItem *tabBarItem = [self.delegate barView:self tabBarItemForIndex:indexPath.item];
     
     JLNRBarCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
     [cell setupWithTabBarItem:tabBarItem];
@@ -202,7 +202,7 @@ static CGFloat const kVerticalItemSpacing = 22;
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     self.selectedIndex = indexPath.item;
-    [self.delegate bar:self didSelectIndex:indexPath.item];
+    [self.delegate barView:self didSelectIndex:indexPath.item];
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
