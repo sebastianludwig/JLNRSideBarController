@@ -52,7 +52,7 @@ static CGFloat const kVerticalItemSpacing = 22;
     self.clipsToBounds = YES;
     
     _maxContentWidthForBottomBar = kDefaultMaxContentWidthForBottomBar;
-    _barWidth = kDefaultLeftBarWidth;
+    _sideBarWidth = kDefaultLeftBarWidth;
     
     self.leftBar = [self createCollectionView];
     self.bottomBar = [self createCollectionView];
@@ -98,8 +98,8 @@ static CGFloat const kVerticalItemSpacing = 22;
     
     CGRect contentFrame = bounds;
     if (useVerticalMenu) {
-        contentFrame.origin.x += self.barWidth;
-        contentFrame.size.width -= self.barWidth;
+        contentFrame.origin.x += self.sideBarWidth;
+        contentFrame.size.width -= self.sideBarWidth;
         self.contentView.frame = contentFrame;
     }
     else {
@@ -117,9 +117,9 @@ static CGFloat const kVerticalItemSpacing = 22;
     [self.bottomBar.collectionViewLayout invalidateLayout];
     
     CGRect leftBarFrame = bounds;
-    leftBarFrame.size.width = self.barWidth;
+    leftBarFrame.size.width = self.sideBarWidth;
     if (!useVerticalMenu) {
-        leftBarFrame.origin.y -= self.barWidth;
+        leftBarFrame.origin.y -= self.sideBarWidth;
     }
     self.leftBar.frame = leftBarFrame;
     [self.leftBar.collectionViewLayout invalidateLayout];
