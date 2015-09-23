@@ -11,8 +11,8 @@
 #import "JLNRBarBackgroundView.h"
 
 
-static CGFloat const kDefaultSideBarWidth = 100;
-static CGFloat const kDefaultTabBarHeight = 49;
+static CGFloat const kDefaultLeftBarWidth = 100;
+static CGFloat const kDefaultBottomBarHeight = 49;
 // This happens to be (longer side of iPhone 6 Plus minus 1), i.e. by default we show the side menu on iPhone 6 Plus or an iPads in landscape.
 static CGFloat const kDefaultMaxContentWidth = 735;
 
@@ -23,8 +23,8 @@ static CGFloat const kVerticalItemSpacing = 22;
 @interface JLNRBarView () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, weak) UIView *contentView;
-@property (nonatomic, weak, readwrite) UICollectionView *menu;
-@property (nonatomic, weak, readwrite) UICollectionView *tabBar;
+@property (nonatomic, weak, readwrite) UICollectionView *leftBar;
+@property (nonatomic, weak, readwrite) UICollectionView *bottomBar;
 
 @end
 
@@ -52,10 +52,10 @@ static CGFloat const kVerticalItemSpacing = 22;
     self.clipsToBounds = YES;
     
     _maxContentWidth = kDefaultMaxContentWidth;
-    _sideBarWidth = kDefaultSideBarWidth;
+    _sideBarWidth = kDefaultLeftBarWidth;
     
-    self.menu = [self createCollectionView];
-    self.tabBar = [self createCollectionView];
+    self.leftBar = [self createCollectionView];
+    self.bottomBar = [self createCollectionView];
     
     UIView *contentView = [UIView new];
     [self addSubview:contentView];
@@ -103,39 +103,39 @@ static CGFloat const kVerticalItemSpacing = 22;
         self.contentView.frame = contentFrame;
     }
     else {
-        contentFrame.size.height -= kDefaultTabBarHeight;
+        contentFrame.size.height -= kDefaultBottomBarHeight;
         self.contentView.frame = contentFrame;
     }
     
-    CGRect tabBarFrame = bounds;
-    tabBarFrame.origin.y = tabBarFrame.size.height;
-    tabBarFrame.size.height = kDefaultTabBarHeight;
+    CGRect bottomBarFrame = bounds;
+    bottomBarFrame.origin.y = bottomBarFrame.size.height;
+    bottomBarFrame.size.height = kDefaultBottomBarHeight;
     if (!useVerticalMenu) {
-        tabBarFrame.origin.y -= kDefaultTabBarHeight;
+        bottomBarFrame.origin.y -= kDefaultBottomBarHeight;
     }
-    self.tabBar.frame = tabBarFrame;
-    [self.tabBar.collectionViewLayout invalidateLayout];
+    self.bottomBar.frame = bottomBarFrame;
+    [self.bottomBar.collectionViewLayout invalidateLayout];
     
-    CGRect menuFrame = bounds;
-    menuFrame.size.width = self.sideBarWidth;
+    CGRect leftBarFrame = bounds;
+    leftBarFrame.size.width = self.sideBarWidth;
     if (!useVerticalMenu) {
-        menuFrame.origin.y -= self.sideBarWidth;
+        leftBarFrame.origin.y -= self.sideBarWidth;
     }
-    self.menu.frame = menuFrame;
-    [self.menu.collectionViewLayout invalidateLayout];
+    self.leftBar.frame = leftBarFrame;
+    [self.leftBar.collectionViewLayout invalidateLayout];
     
-    [self sendSubviewToBack:(useVerticalMenu ? self.tabBar : self.menu)];
+    [self sendSubviewToBack:(useVerticalMenu ? self.bottomBar : self.leftBar)];
 }
 
 - (NSInteger)selectedIndex
 {
-    NSIndexPath *selection = [[self.menu indexPathsForSelectedItems] firstObject];
+    NSIndexPath *selection = [[self.leftBar indexPathsForSelectedItems] firstObject];
     return selection.item;
 }
 
 - (void)setSelectedIndex:(NSInteger)selectedIndex
 {
-    for (UICollectionView *collectionView in @[self.menu, self.tabBar]) {
+    for (UICollectionView *collectionView in @[self.leftBar, self.bottomBar]) {
         while ([collectionView.indexPathsForSelectedItems count] > 0) {
             NSIndexPath *selection = [[collectionView indexPathsForSelectedItems] firstObject];     // why u no simply for loop?
             [collectionView deselectItemAtIndexPath:selection animated:NO];
@@ -148,8 +148,8 @@ static CGFloat const kVerticalItemSpacing = 22;
 
 - (void)reloadData
 {
-    [self.menu reloadData];
-    [self.tabBar reloadData];
+    [self.leftBar reloadData];
+    [self.bottomBar reloadData];
 }
 
 #pragma mark - Passing through some properties
@@ -158,7 +158,7 @@ static CGFloat const kVerticalItemSpacing = 22;
 {
     _borderColor = borderColor;
     
-    for (UICollectionView *collectionView in @[self.menu, self.tabBar]) {
+    for (UICollectionView *collectionView in @[self.leftBar, self.bottomBar]) {
         JLNRBarBackgroundView *backgroundView = (JLNRBarBackgroundView *)collectionView.backgroundView;
         backgroundView.borderColor = borderColor;
     }
@@ -168,7 +168,7 @@ static CGFloat const kVerticalItemSpacing = 22;
 {
     [super setBackgroundColor:backgroundColor];
 
-    for (UICollectionView *collectionView in @[self.menu, self.tabBar]) {
+    for (UICollectionView *collectionView in @[self.leftBar, self.bottomBar]) {
         JLNRBarBackgroundView *backgroundView = (JLNRBarBackgroundView *)collectionView.backgroundView;
         
         if (backgroundColor) {
