@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -19,13 +19,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JLNRBarControllerExample" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yJ3-db-VOU">
-                                <rect key="frame" x="198" y="20" width="204" height="20"/>
+                                <rect key="frame" x="197" y="20" width="207" height="20"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ef7-Dq-mxW">
-                                <rect key="frame" x="16" y="280" width="568" height="41"/>
+                                <rect key="frame" x="20" y="280" width="560" height="41"/>
                                 <string key="text">You can instantiate JLNRBarController in code as part of your AppDelegate, or you can present it modally and then set it up via a Storyboard segue.</string>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -158,19 +158,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <slider opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="735" minValue="0.0" maxValue="1024" translatesAutoresizingMaskIntoConstraints="NO" id="PCR-hK-hJ9">
-                                <rect key="frame" x="14" y="145" width="365" height="31"/>
+                                <rect key="frame" x="18" y="145" width="358" height="31"/>
                                 <connections>
                                     <action selector="changeContentWidth:" destination="o0s-w7-rml" eventType="valueChanged" id="5bC-9z-zO1"/>
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="735px" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ktm-DP-PdN">
-                                <rect key="frame" x="385" y="150" width="46" height="20"/>
+                                <rect key="frame" x="382" y="150" width="46" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Yio-9o-GJC">
-                                <rect key="frame" x="16" y="195" width="568" height="29"/>
+                                <rect key="frame" x="20" y="195" width="560" height="29"/>
                                 <segments>
                                     <segment title="bgColor=nil"/>
                                     <segment title="custom"/>
@@ -181,7 +181,7 @@
                                 </connections>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="yxe-xQ-KaO">
-                                <rect key="frame" x="16" y="233" width="568" height="29"/>
+                                <rect key="frame" x="20" y="233" width="560" height="29"/>
                                 <segments>
                                     <segment title="borderColor=nil"/>
                                     <segment title="custom"/>
@@ -192,7 +192,7 @@
                                 </connections>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="RkI-f6-PaA">
-                                <rect key="frame" x="16" y="271" width="568" height="29"/>
+                                <rect key="frame" x="20" y="271" width="560" height="29"/>
                                 <segments>
                                     <segment title="selectionIndicatorColor=nil"/>
                                     <segment title="UIAppearance"/>
@@ -202,7 +202,7 @@
                                 </connections>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="gRt-wD-Zxg">
-                                <rect key="frame" x="16" y="309" width="568" height="29"/>
+                                <rect key="frame" x="20" y="309" width="560" height="29"/>
                                 <segments>
                                     <segment title="inactiveColor=nil"/>
                                     <segment title="UIAppearance"/>
@@ -213,26 +213,26 @@
                                 </connections>
                             </segmentedControl>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(You need to dismiss this view controller and show another one for the UIAppearance settings to take effect.)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pB3-vy-dfg">
-                                <rect key="frame" x="16" y="347" width="568" height="31"/>
+                                <rect key="frame" x="20" y="347" width="560" height="31"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5cj-fa-V9v">
-                                <rect key="frame" x="16" y="84" width="568" height="41"/>
+                                <rect key="frame" x="20" y="84" width="560" height="41"/>
                                 <string key="text">JLNRViewController uses a tab bar at the bottom, or a side menu when in landscape mode and when the available width is bigger than…</string>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="03A-dj-kuG">
-                                <rect key="frame" x="535" y="144" width="51" height="31"/>
+                                <rect key="frame" x="531" y="144" width="51" height="31"/>
                                 <connections>
                                     <action selector="toggleHidden:" destination="o0s-w7-rml" eventType="valueChanged" id="4bd-jL-d28"/>
                                 </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hidden" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QXR-3f-05s">
-                                <rect key="frame" x="471" y="149" width="56" height="21"/>
+                                <rect key="frame" x="468" y="149" width="55" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
