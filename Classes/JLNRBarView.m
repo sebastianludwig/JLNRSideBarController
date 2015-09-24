@@ -42,7 +42,7 @@ static CGFloat const kVerticalItemSpacing = 22;
 - (id)initWithFrame:(CGRect)frame
 {
     if ((self = [super initWithFrame:frame])) {
-        [self setupBar];
+        [self setup];
     }
     return self;
 }
@@ -50,12 +50,12 @@ static CGFloat const kVerticalItemSpacing = 22;
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     if ((self = [super initWithCoder:aDecoder])) {
-        [self setupBar];
+        [self setup];
     }
     return self;
 }
 
-- (void)setupBar
+- (void)setup
 {
     self.clipsToBounds = YES;
     
