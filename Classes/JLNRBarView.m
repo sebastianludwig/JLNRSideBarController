@@ -164,10 +164,7 @@ static CGFloat const kVerticalItemSpacing = 22;
     _selectedIndex = selectedIndex;
     
     [self forEachBar:^(UICollectionView *collectionView) {
-        while ([collectionView.indexPathsForSelectedItems count] > 0) {
-            NSIndexPath *selection = [[collectionView indexPathsForSelectedItems] firstObject];     // why u no simply for loop?
-            [collectionView deselectItemAtIndexPath:selection animated:NO];
-        }
+        [collectionView deselectItemAtIndexPath:[[collectionView indexPathsForSelectedItems] firstObject] animated:NO];
         
         NSIndexPath *selection = [NSIndexPath indexPathForItem:selectedIndex inSection:0];
         [collectionView selectItemAtIndexPath:selection animated:NO scrollPosition:UICollectionViewScrollPositionNone];
