@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9E300D721BB44F01009603D2 /* JLNRBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E300D711BB44F01009603D2 /* JLNRBadgeView.m */; settings = {ASSET_TAGS = (); }; };
+		9E7366041BB489EA00C3F99C /* UIViewController+JLNRBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7366031BB489EA00C3F99C /* UIViewController+JLNRBarController.m */; settings = {ASSET_TAGS = (); }; };
 		D4121E601AF17475002C6A7B /* JLNRBarBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4121E591AF17475002C6A7B /* JLNRBarBackgroundView.m */; };
 		D4121E611AF17475002C6A7B /* JLNRBarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D4121E5B1AF17475002C6A7B /* JLNRBarCell.m */; };
 		D4121E621AF17475002C6A7B /* JLNRBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4121E5D1AF17475002C6A7B /* JLNRBarView.m */; };
@@ -24,6 +25,8 @@
 /* Begin PBXFileReference section */
 		9E300D701BB44F01009603D2 /* JLNRBadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JLNRBadgeView.h; path = ../Classes/JLNRBadgeView.h; sourceTree = "<group>"; };
 		9E300D711BB44F01009603D2 /* JLNRBadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JLNRBadgeView.m; path = ../Classes/JLNRBadgeView.m; sourceTree = "<group>"; };
+		9E7366021BB489EA00C3F99C /* UIViewController+JLNRBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+JLNRBarController.h"; path = "../Classes/UIViewController+JLNRBarController.h"; sourceTree = "<group>"; };
+		9E7366031BB489EA00C3F99C /* UIViewController+JLNRBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+JLNRBarController.m"; path = "../Classes/UIViewController+JLNRBarController.m"; sourceTree = "<group>"; };
 		D4121E581AF17475002C6A7B /* JLNRBarBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JLNRBarBackgroundView.h; path = ../Classes/JLNRBarBackgroundView.h; sourceTree = "<group>"; };
 		D4121E591AF17475002C6A7B /* JLNRBarBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JLNRBarBackgroundView.m; path = ../Classes/JLNRBarBackgroundView.m; sourceTree = "<group>"; };
 		D4121E5A1AF17475002C6A7B /* JLNRBarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JLNRBarCell.h; path = ../Classes/JLNRBarCell.h; sourceTree = "<group>"; };
@@ -113,6 +116,8 @@
 				D4121E5F1AF17475002C6A7B /* JLNRBarController.m */,
 				D4121E5C1AF17475002C6A7B /* JLNRBarView.h */,
 				D4121E5D1AF17475002C6A7B /* JLNRBarView.m */,
+				9E7366021BB489EA00C3F99C /* UIViewController+JLNRBarController.h */,
+				9E7366031BB489EA00C3F99C /* UIViewController+JLNRBarController.m */,
 			);
 			name = JLNRSideBarController;
 			sourceTree = "<group>";
@@ -187,6 +192,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E7366041BB489EA00C3F99C /* UIViewController+JLNRBarController.m in Sources */,
 				D4E81D661AEE8DB9006F6502 /* IntroViewController.m in Sources */,
 				D4121E601AF17475002C6A7B /* JLNRBarBackgroundView.m in Sources */,
 				D4E81D921AEE92D4006F6502 /* StylingViewController.m in Sources */,

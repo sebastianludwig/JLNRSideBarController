@@ -28,31 +28,26 @@
 
 @implementation StylingViewController
 
-- (JLNRBarController *)barController
-{
-    return (JLNRBarController *)self.navigationController.parentViewController;
-}
-
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
-    CGFloat contentWidth = self.barController.barView.maxContentWidthForBottomBar;
+    CGFloat contentWidth = self.jlnrBarController.barView.maxContentWidthForBottomBar;
     self.contentWidthSlider.value = contentWidth;
     self.contentWidthLabel.text = [NSString stringWithFormat:@"%@px", @(contentWidth)];
     
     CGFloat sideBarWidth = 250;
-    self.barController.barView.sideBarWidth = sideBarWidth;
+    self.jlnrBarController.barView.sideBarWidth = sideBarWidth;
     self.sideBarWidthSlider.value = sideBarWidth;
     self.sideBarWidthLabel.text = [NSString stringWithFormat:@"%@px", @(sideBarWidth)];
-    self.hiddenSwitch.on = self.barController.isBarHidden;
+    self.hiddenSwitch.on = self.jlnrBarController.isBarHidden;
     
     
     
     if ([JLNRBarView appearance].backgroundColor) {
         self.backgroundControl.selectedSegmentIndex = 2;
     }
-    else if (self.barController.barView.backgroundColor) {
+    else if (self.jlnrBarController.barView.backgroundColor) {
         self.backgroundControl.selectedSegmentIndex = 1;
     }
     else {
@@ -62,7 +57,7 @@
     if ([JLNRBarView appearance].borderColor) {
         self.borderControl.selectedSegmentIndex = 2;
     }
-    else if (self.barController.barView.borderColor) {
+    else if (self.jlnrBarController.barView.borderColor) {
         self.borderControl.selectedSegmentIndex = 1;
     }
     else {
@@ -87,14 +82,14 @@
 - (IBAction)changeContentWidth:(id)sender
 {
     CGFloat contentWidth = round(self.contentWidthSlider.value);
-    self.barController.barView.maxContentWidthForBottomBar = contentWidth;
+    self.jlnrBarController.barView.maxContentWidthForBottomBar = contentWidth;
     self.contentWidthLabel.text = [NSString stringWithFormat:@"%@px", @(contentWidth)];
 }
 
 - (IBAction)changeSideBarWidth
 {
     CGFloat sideBarWidth = round(self.sideBarWidthSlider.value);
-    self.barController.barView.sideBarWidth = sideBarWidth;
+    self.jlnrBarController.barView.sideBarWidth = sideBarWidth;
     self.sideBarWidthLabel.text = [NSString stringWithFormat:@"%@px", @(sideBarWidth)];
 }
 
@@ -103,7 +98,7 @@
     BOOL custom = (self.backgroundControl.selectedSegmentIndex == 1);
     BOOL appearance = (self.backgroundControl.selectedSegmentIndex == 2);
     
-    self.barController.barView.backgroundColor = (custom ? [UIColor purpleColor] : nil);
+    self.jlnrBarController.barView.backgroundColor = (custom ? [UIColor purpleColor] : nil);
     [JLNRBarView appearance].backgroundColor = (appearance ? [UIColor yellowColor] : nil);
     
     if (appearance) {
@@ -116,7 +111,7 @@
     BOOL custom = (self.borderControl.selectedSegmentIndex == 1);
     BOOL appearance = (self.borderControl.selectedSegmentIndex == 2);
     
-    self.barController.barView.borderColor = (custom ? [UIColor greenColor] : nil);
+    self.jlnrBarController.barView.borderColor = (custom ? [UIColor greenColor] : nil);
     [JLNRBarView appearance].borderColor = (appearance ? [UIColor redColor] : nil);
 
     if (appearance) {
@@ -144,7 +139,7 @@
 
 - (IBAction)toggleHidden:(UISwitch *)sender
 {
-    [self.barController setBottomBarHidden:sender.on animated:YES];
+    [self.jlnrBarController setBottomBarHidden:sender.on animated:YES];
 }
 
 - (IBAction)incrementBadgeValue
