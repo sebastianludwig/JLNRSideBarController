@@ -40,12 +40,14 @@
     CGFloat contentWidth = self.barController.barView.maxContentWidthForBottomBar;
     self.contentWidthSlider.value = contentWidth;
     self.contentWidthLabel.text = [NSString stringWithFormat:@"%@px", @(contentWidth)];
-    CGFloat sideBarWidth = self.barController.barView.sideBarWidth;
+    
+    CGFloat sideBarWidth = 250;
+    self.barController.barView.sideBarWidth = sideBarWidth;
     self.sideBarWidthSlider.value = sideBarWidth;
     self.sideBarWidthLabel.text = [NSString stringWithFormat:@"%@px", @(sideBarWidth)];
     self.hiddenSwitch.on = self.barController.isBarHidden;
     
-    self.barController.barView.sideBarWidth = 250;
+    
     
     if ([JLNRBarView appearance].backgroundColor) {
         self.backgroundControl.selectedSegmentIndex = 2;
@@ -143,6 +145,12 @@
 - (IBAction)toggleHidden:(UISwitch *)sender
 {
     [self.barController setBottomBarHidden:sender.on animated:YES];
+}
+
+- (IBAction)incrementBadgeValue
+{
+    static int i = 0;
+    self.navigationController.tabBarItem.badgeValue = [NSString stringWithFormat:@"%d", i++];
 }
 
 - (IBAction)dismiss:(id)sender

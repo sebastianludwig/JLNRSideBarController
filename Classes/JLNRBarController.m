@@ -18,6 +18,11 @@
 
 #pragma mark - UIViewController
 
+- (void)dealloc
+{
+    [self removeObserverFromViewControllers];
+}
+
 - (void)loadView
 {
     JLNRBarView *barView = [JLNRBarView new];
@@ -33,6 +38,27 @@
         // Open default tab if nothing else has been shown before
         self.selectedIndex = 0;
     }
+}
+
+#pragma mark - KVO
+
+- (void)removeObserverFromViewControllers
+{
+    for (UIViewController *viewController in self.viewControllers) {
+        [viewController removeObserver:self forKeyPath:@"tabBarItem.badgeValue"];
+    }
+}
+
+- (void)addObserverToViewControllers
+{
+    for (UIViewController *viewController in self.viewControllers) {
+        [viewController addObserver:self forKeyPath:@"tabBarItem.badgeValue" options:0 context:nil];
+    }
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    [self.barView reloadData];
 }
 
 #pragma mark - Bar visibility
@@ -135,7 +161,12 @@
     [oldViewController.view removeFromSuperview];
     [oldViewController removeFromParentViewController];
     
+    [self removeObserverFromViewControllers];
+    
     _viewControllers = [viewControllers copy];
+    
+    [self addObserverToViewControllers];
+    
     [self.barView reloadData];
     // TODO - select and show first view controller
 }

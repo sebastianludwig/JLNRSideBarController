@@ -256,6 +256,13 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m1r-i7-sFL">
+                                <rect key="frame" x="268" y="416" width="65" height="30"/>
+                                <state key="normal" title="Badge +1"/>
+                                <connections>
+                                    <action selector="incrementBadgeValue" destination="o0s-w7-rml" eventType="touchUpInside" id="J0L-PZ-rHF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -278,6 +285,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="Yio-9o-GJC" secondAttribute="trailing" id="M6P-dU-jp1"/>
                             <constraint firstAttribute="trailingMargin" secondItem="5cj-fa-V9v" secondAttribute="trailing" id="MA5-sr-Wuh"/>
                             <constraint firstItem="yxe-xQ-KaO" firstAttribute="leading" secondItem="Yio-9o-GJC" secondAttribute="leading" id="MHk-j8-NQ1"/>
+                            <constraint firstItem="m1r-i7-sFL" firstAttribute="centerX" secondItem="pB3-vy-dfg" secondAttribute="centerX" id="MVd-X8-02l"/>
                             <constraint firstItem="8tD-O4-UJa" firstAttribute="trailing" secondItem="ktm-DP-PdN" secondAttribute="trailing" id="Mdh-pu-eSZ"/>
                             <constraint firstItem="evL-ZJ-tur" firstAttribute="top" secondItem="03A-dj-kuG" secondAttribute="bottom" constant="20" id="RkD-vg-cPi"/>
                             <constraint firstItem="ktm-DP-PdN" firstAttribute="leading" secondItem="PCR-hK-hJ9" secondAttribute="trailing" constant="8" id="SqA-Ws-M7F"/>
@@ -293,6 +301,7 @@
                             <constraint firstItem="Yio-9o-GJC" firstAttribute="top" secondItem="PCR-hK-hJ9" secondAttribute="bottom" constant="20" id="fi8-50-azc"/>
                             <constraint firstItem="5cj-fa-V9v" firstAttribute="top" secondItem="Rpj-Es-uX3" secondAttribute="bottom" constant="20" id="hPb-qh-Wq7"/>
                             <constraint firstItem="yxe-xQ-KaO" firstAttribute="trailing" secondItem="Yio-9o-GJC" secondAttribute="trailing" id="kcf-qM-sTM"/>
+                            <constraint firstItem="m1r-i7-sFL" firstAttribute="top" secondItem="pB3-vy-dfg" secondAttribute="bottom" constant="8" symbolic="YES" id="ks4-lK-KQP"/>
                             <constraint firstItem="pB3-vy-dfg" firstAttribute="top" secondItem="gRt-wD-Zxg" secondAttribute="bottom" constant="10" id="l17-Ld-wnC"/>
                             <constraint firstItem="fec-X8-L84" firstAttribute="leading" secondItem="sdM-Es-lex" secondAttribute="trailing" constant="10" id="mte-nN-69e"/>
                             <constraint firstItem="ktm-DP-PdN" firstAttribute="baseline" secondItem="QXR-3f-05s" secondAttribute="baseline" id="nlJ-TC-La0"/>
@@ -303,8 +312,8 @@
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="24b-mc-cvp"/>
-                                <exclude reference="aoA-t9-fWu"/>
                                 <exclude reference="vsf-1E-8Ob"/>
+                                <exclude reference="aoA-t9-fWu"/>
                                 <exclude reference="fi8-50-azc"/>
                                 <exclude reference="WHX-9N-mFH"/>
                                 <exclude reference="RkD-vg-cPi"/>

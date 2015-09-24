@@ -7,6 +7,7 @@
 //
 
 #import "JLNRBarCell.h"
+#import "JLNRBadgeView.h"
 
 
 static CGFloat const kImageViewSize = 33;
@@ -18,6 +19,7 @@ static CGFloat const kMinimumWidthForHorizontalLayout = 200;
 
 @property (nonatomic, weak) UIImageView *imageView;
 @property (nonatomic, weak) UILabel *label;
+@property (nonatomic, weak) JLNRBadgeView *badgeView;
 
 @end
 
@@ -53,6 +55,12 @@ static CGFloat const kMinimumWidthForHorizontalLayout = 200;
     label.backgroundColor = [UIColor clearColor];
     [self addSubview:label];
     self.label = label;
+    
+    JLNRBadgeView *badgeView = [[JLNRBadgeView alloc] initWithFrame:CGRectMake(0, 0, 30, 20)];
+    badgeView.badgeColor = [UIColor redColor];
+    badgeView.textColor = [UIColor whiteColor];
+    [self addSubview:badgeView];
+    self.badgeView = badgeView;
 }
 
 #pragma mark - Layout
@@ -70,6 +78,8 @@ static CGFloat const kMinimumWidthForHorizontalLayout = 200;
     }
     
     self.label.text = item.title;
+    
+    self.badgeView.badgeText = item.badgeValue;
     [self setNeedsLayout];
 }
 
@@ -115,6 +125,11 @@ static CGFloat const kMinimumWidthForHorizontalLayout = 200;
         self.label.frame = CGRectIntegral(labelFrame);
     }
     
+    CGRect badgeFrame;
+    badgeFrame.size = self.badgeView.intrinsicContentSize;
+    badgeFrame.origin = CGPointMake(CGRectGetMaxX(self.imageView.frame), CGRectGetMinY(self.imageView.frame));
+    badgeFrame = CGRectOffset(badgeFrame, -badgeFrame.size.width / 2, -badgeFrame.size.height / 2);
+    self.badgeView.frame = CGRectIntegral(badgeFrame);
 }
 
 #pragma mark - Tint color & selection indicator color
