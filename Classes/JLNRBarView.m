@@ -127,6 +127,7 @@ static CGFloat const kVerticalItemSpacing = 22;
     
     if (useLeftBar) {
         contentViewBottomConstraint.constant = 0;
+        leftBarWidthConstraint.constant = self.sideBarWidth;
         contentViewLeftConstraint.constant = self.sideBarHidden ? 0 : leftBarWidthConstraint.constant;
         [self.leftBar.collectionViewLayout invalidateLayout];
     } else {
@@ -167,6 +168,13 @@ static CGFloat const kVerticalItemSpacing = 22;
         NSIndexPath *selection = [NSIndexPath indexPathForItem:selectedIndex inSection:0];
         [collectionView selectItemAtIndexPath:selection animated:NO scrollPosition:UICollectionViewScrollPositionNone];
     }
+}
+
+- (void)setSideBarWidth:(CGFloat)sideBarWidth
+{
+    _sideBarWidth = sideBarWidth;
+    [self setNeedsUpdateConstraints];
+    [self layoutIfNeeded];
 }
 
 - (void)reloadData
