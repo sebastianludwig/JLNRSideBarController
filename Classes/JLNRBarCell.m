@@ -65,6 +65,14 @@ static CGFloat const kMinimumWidthForHorizontalLayout = 200;
 
 #pragma mark - Layout
 
+- (void)prepareForReuse
+{
+    self.selected = NO;
+    self.highlighted = NO;
+    self.imageView.image = nil;
+    self.imageView.highlightedImage = nil;
+}
+
 - (void)setupWithTabBarItem:(UITabBarItem *)item
 {
     self.imageView.image = [item.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];

@@ -151,14 +151,11 @@ static CGFloat const kVerticalItemSpacing = 22;
     }
 }
 
-- (NSInteger)selectedIndex
-{
-    NSIndexPath *selection = [[self.leftBar indexPathsForSelectedItems] firstObject];
-    return selection.item;
-}
-
 - (void)setSelectedIndex:(NSInteger)selectedIndex
 {
+    NSInteger oldIndexPath = _selectedIndex;
+    _selectedIndex = selectedIndex;
+    
     for (UICollectionView *collectionView in @[self.leftBar, self.bottomBar]) {
         while ([collectionView.indexPathsForSelectedItems count] > 0) {
             NSIndexPath *selection = [[collectionView indexPathsForSelectedItems] firstObject];     // why u no simply for loop?
@@ -168,6 +165,12 @@ static CGFloat const kVerticalItemSpacing = 22;
         NSIndexPath *selection = [NSIndexPath indexPathForItem:selectedIndex inSection:0];
         [collectionView selectItemAtIndexPath:selection animated:NO scrollPosition:UICollectionViewScrollPositionNone];
     }
+    
+    [UIView performWithoutAnimation:^{
+        for (UICollectionView *collectionView in @[self.leftBar, self.bottomBar]) {
+            [collectionView reloadItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:oldIndexPath inSection:0]]];
+        }
+    }];
 }
 
 - (void)setSideBarWidth:(CGFloat)sideBarWidth
@@ -270,6 +273,7 @@ static CGFloat const kVerticalItemSpacing = 22;
     
     JLNRBarCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
     [cell setupWithTabBarItem:tabBarItem];
+    cell.selected = indexPath.item == self.selectedIndex;
     return cell;
 }
 
