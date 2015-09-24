@@ -1,10 +1,10 @@
-# JLNRSideBarController
+# JLNRBarController
 
 TODO: This project is still in flux, do not use.
 
 ## Requirements
 
-`JLNRSideBarController` has been tested on iOS 7 and 8. It should be easy get it to work on iOS 6 as well. `JLNRSideBarController` uses `UICollectionView` internally, so using it on iOS 5 could possibly work if you use it with [PSTCollectionView](https://github.com/steipete/PSTCollectionView).
+`JLNRBarController` has been tested on iOS 7 and 8. It should be easy get it to work on iOS 6 as well. `JLNRBarController` uses `UICollectionView` internally, so using it on iOS 5 could possibly work if you use it with [PSTCollectionView](https://github.com/steipete/PSTCollectionView).
 
 ## Installation
 
@@ -21,4 +21,4 @@ pod "JLNRSideBarController", :git => "https://github.com/jlnr/JLNRSideBarControl
 
 ## License
 
-`JLNRSideBarController` is MIT-licensed.
+`JLNRBarController` is MIT-licensed.
