@@ -153,7 +153,7 @@ static CGFloat const kMinimumWidthForHorizontalLayout = 200;
 {
     [super setHighlighted:highlighted];
     
-    self.imageView.highlighted = self.selected;
+    self.imageView.highlighted = highlighted;
     
     [self updateColors];
 }
