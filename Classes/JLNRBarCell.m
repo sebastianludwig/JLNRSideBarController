@@ -97,7 +97,7 @@ static CGFloat const kMinimumWidthForHorizontalLayout = 200;
         
         labelFrame.origin.x = round((availableSize.width - labelFrame.size.width) / 2);
         labelFrame.origin.y = ceil(CGRectGetMaxY(imageViewFrame)) + spacing;
-        self.label.frame = labelFrame;
+        self.label.frame = CGRectIntegral(labelFrame);
     }
     else {
         // Horizontal layout - should look more like a table-based side menu
@@ -112,7 +112,7 @@ static CGFloat const kMinimumWidthForHorizontalLayout = 200;
         CGRect labelFrame = self.label.frame;
         labelFrame.origin.x = CGRectGetMaxX(imageViewFrame) + kImageLabelHorizontalSpacing;
         labelFrame.origin.y = round((availableSize.height - labelFrame.size.height) / 2);
-        self.label.frame = labelFrame;
+        self.label.frame = CGRectIntegral(labelFrame);
     }
     
 }
