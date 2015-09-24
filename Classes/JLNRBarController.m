@@ -34,10 +34,17 @@
 {
     [super viewWillAppear:animated];
     
-    if ([self.barView.contentView.subviews count] == 0) {
+    if (![self tabHasEverBeenSelected]) {
         // Open default tab if nothing else has been shown before
         self.selectedIndex = 0;
     }
+}
+
+#pragma mark - JLNRBarController
+
+- (BOOL)tabHasEverBeenSelected
+{
+    return [self.barView.contentView.subviews count] > 0;   // HINT: this coupling is pretty tight (insider info of JLNRBarView workings)
 }
 
 #pragma mark - KVO
@@ -168,7 +175,18 @@
     [self addObserverToViewControllers];
     
     [self.barView reloadData];
-    // TODO - select and show first view controller
+    
+    // reselection like UITabViewController does it
+    if ([self tabHasEverBeenSelected]) {
+        NSInteger index = [self.viewControllers indexOfObject:oldViewController];
+        if (index != NSNotFound) {
+            self.selectedIndex = index;
+        } else if (self.selectedIndex < _viewControllers.count) {
+            self.selectedIndex = self.selectedIndex; // reselect
+        } else {
+            self.selectedIndex = 0;
+        }
+    }
 }
 
 #pragma mark - Message forwarding to nested view controllers
