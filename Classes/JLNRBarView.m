@@ -104,7 +104,7 @@ static CGFloat const kVerticalItemSpacing = 22;
     collectionView.scrollEnabled = NO;
     collectionView.dataSource = self;
     collectionView.delegate = self;
-    collectionView.allowsMultipleSelection = YES;
+    collectionView.allowsMultipleSelection = NO;
     [collectionView registerClass:[JLNRBarCell class] forCellWithReuseIdentifier:@"Cell"];
     
     JLNRBarBackgroundView *backgroundView = [JLNRBarBackgroundView new];
