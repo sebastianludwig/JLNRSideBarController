@@ -70,6 +70,7 @@ static CGFloat const kMinimumWidthForHorizontalLayout = 200;
     }
     
     self.label.text = item.title;
+    [self setNeedsLayout];
 }
 
 - (void)layoutSubviews
