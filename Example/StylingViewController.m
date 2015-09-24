@@ -149,8 +149,8 @@
 
 - (IBAction)incrementBadgeValue
 {
-    static int i = 0;
-    self.navigationController.tabBarItem.badgeValue = [NSString stringWithFormat:@"%d", i++];
+    int badgeValue = [self.navigationController.tabBarItem.badgeValue intValue];
+    self.navigationController.tabBarItem.badgeValue = [NSString stringWithFormat:@"%d", ++badgeValue];
 }
 
 - (IBAction)dismiss:(id)sender
