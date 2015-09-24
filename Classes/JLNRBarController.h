@@ -22,7 +22,11 @@
 @property (nonatomic, readonly) JLNRBarView *barView;
 
 @property(nonatomic, getter=isBarHidden) BOOL barHidden;
+@property(nonatomic, getter=isBottomBarHidden) BOOL bottomBarHidden;
+@property(nonatomic, getter=isSideBarHidden) BOOL sideBarHidden;
 
 - (void)setBarHidden:(BOOL)hidden animated:(BOOL)animated;
+- (void)setBottomBarHidden:(BOOL)hidden animated:(BOOL)animated;
+- (void)setSideBarHidden:(BOOL)hidden animated:(BOOL)animated;
 
 @end

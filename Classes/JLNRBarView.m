@@ -35,8 +35,6 @@ static CGFloat const kVerticalItemSpacing = 22;
     NSLayoutConstraint *bottomBarHeightConstraint;
     NSLayoutConstraint *contentViewLeftConstraint;
     NSLayoutConstraint *contentViewBottomConstraint;
-    
-    BOOL barHidden;
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -59,7 +57,7 @@ static CGFloat const kVerticalItemSpacing = 22;
 {
     self.clipsToBounds = YES;
     
-    barHidden = NO;
+    self.barHidden = NO;
     
     _maxContentWidthForBottomBar = kDefaultMaxContentWidthForBottomBar;
     _sideBarWidth = kDefaultLeftBarWidth;
@@ -124,40 +122,31 @@ static CGFloat const kVerticalItemSpacing = 22;
 {
     [super updateConstraints];
     
-    [self updateConstraintsAnimated:NO];
+    CGRect bounds = self.bounds;
+    BOOL useLeftBar = (bounds.size.width > self.maxContentWidthForBottomBar && bounds.size.width > bounds.size.height);
+    
+    if (useLeftBar) {
+        contentViewBottomConstraint.constant = 0;
+        contentViewLeftConstraint.constant = self.sideBarHidden ? 0 : leftBarWidthConstraint.constant;
+        [self.leftBar.collectionViewLayout invalidateLayout];
+    } else {
+        contentViewBottomConstraint.constant = self.bottomBarHidden ? 0 : bottomBarHeightConstraint.constant;
+        contentViewLeftConstraint.constant = 0;
+        [self.bottomBar.collectionViewLayout invalidateLayout];
+    }
 }
 
 - (void)updateConstraintsAnimated:(BOOL)animated
 {
     __weak typeof(self)weakSelf = self;
-    void (^animations)() = ^void() {
-        CGRect bounds = weakSelf.bounds;
-        BOOL useLeftBar = (bounds.size.width > weakSelf.maxContentWidthForBottomBar && bounds.size.width > bounds.size.height);
-        
-        if (barHidden) {
-            contentViewBottomConstraint.constant = 0;
-            contentViewLeftConstraint.constant = 0;
-        } else {
-            if (useLeftBar) {
-                contentViewBottomConstraint.constant = 0;
-                contentViewLeftConstraint.constant = leftBarWidthConstraint.constant;
-                [weakSelf.leftBar.collectionViewLayout invalidateLayout];
-            } else {
-                contentViewBottomConstraint.constant = bottomBarHeightConstraint.constant;
-                contentViewLeftConstraint.constant = 0;
-                [weakSelf.bottomBar.collectionViewLayout invalidateLayout];
-            }
-        }
-    };
-    
-    [self layoutIfNeeded];
     if (animated) {
+        [self layoutIfNeeded];
         [UIView animateWithDuration:0.3 animations:^{
-            animations();
-            [self layoutIfNeeded];
+            [weakSelf updateConstraints];
+            [weakSelf layoutIfNeeded];
         }];
     } else {
-        animations();
+        [weakSelf setNeedsUpdateConstraints];
     }
 }
 
@@ -190,17 +179,44 @@ static CGFloat const kVerticalItemSpacing = 22;
 
 - (BOOL)isBarHidden
 {
-    return barHidden;
+    return self.bottomBarHidden && self.sideBarHidden;
 }
 
 - (void)setBarHidden:(BOOL)hidden
 {
-    [self setBarHidden:hidden animated:NO];
+    self.bottomBarHidden = hidden;
+    self.sideBarHidden = hidden;
+}
+
+- (void)setBottomBarHidden:(BOOL)hidden
+{
+    [self setBottomBarHidden:hidden animated:NO];
+}
+
+- (void)setSideBarHidden:(BOOL)hidden
+{
+    [self setSideBarHidden:hidden animated:NO];
 }
 
 - (void)setBarHidden:(BOOL)hidden animated:(BOOL)animated
 {
-    barHidden = hidden;
+    _bottomBarHidden = hidden;
+    _sideBarHidden = hidden;
+    
+    [self updateConstraintsAnimated:animated];
+}
+
+- (void)setBottomBarHidden:(BOOL)hidden animated:(BOOL)animated
+{
+    _bottomBarHidden = hidden;
+
+    [self updateConstraintsAnimated:animated];
+}
+
+- (void)setSideBarHidden:(BOOL)hidden animated:(BOOL)animated
+{
+    _sideBarHidden = hidden;
+    
     [self updateConstraintsAnimated:animated];
 }
 

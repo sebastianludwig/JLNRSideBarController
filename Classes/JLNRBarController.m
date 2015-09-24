@@ -35,11 +35,21 @@
     }
 }
 
-#pragma mark - Interaction with the bar view
+#pragma mark - Bar visibility
 
 - (BOOL)isBarHidden
 {
     return self.barView.isBarHidden;
+}
+
+- (BOOL)isBottomBarHidden
+{
+    return self.barView.isBottomBarHidden;
+}
+
+- (BOOL)isSideBarHidden
+{
+    return self.barView.isSideBarHidden;
 }
 
 - (void)setBarHidden:(BOOL)hidden
@@ -47,10 +57,32 @@
     self.barView.barHidden = hidden;
 }
 
+- (void)setBottomBarHidden:(BOOL)hidden
+{
+    self.barView.bottomBarHidden = hidden;
+}
+
+- (void)setSideBarHidden:(BOOL)hidden
+{
+    self.barView.sideBarHidden = hidden;
+}
+
 - (void)setBarHidden:(BOOL)hidden animated:(BOOL)animated
 {
     [self.barView setBarHidden:hidden animated:animated];
 }
+
+- (void)setBottomBarHidden:(BOOL)hidden animated:(BOOL)animated
+{
+	[self.barView setBottomBarHidden:hidden animated:animated];
+}
+
+- (void)setSideBarHidden:(BOOL)hidden animated:(BOOL)animated
+{
+	[self.barView setSideBarHidden:hidden animated:animated];
+}
+
+#pragma mark - Interaction with the bar view
 
 - (JLNRBarView *)barView
 {

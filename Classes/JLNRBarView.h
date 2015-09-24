@@ -24,10 +24,14 @@
 @property (nonatomic) NSInteger selectedIndex;
 
 @property(nonatomic, getter=isBarHidden) BOOL barHidden;
+@property(nonatomic, getter=isBottomBarHidden) BOOL bottomBarHidden;
+@property(nonatomic, getter=isSideBarHidden) BOOL sideBarHidden;
 
 - (void)reloadData;
 
 - (void)setBarHidden:(BOOL)hidden animated:(BOOL)animated;
+- (void)setBottomBarHidden:(BOOL)hidden animated:(BOOL)animated;
+- (void)setSideBarHidden:(BOOL)hidden animated:(BOOL)animated;
 
 @end
 

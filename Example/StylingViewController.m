@@ -128,7 +128,7 @@
 
 - (IBAction)toggleHidden:(UISwitch *)sender
 {
-    [self.barController setBarHidden:sender.on animated:YES];
+    [self.barController setBottomBarHidden:sender.on animated:YES];
 }
 
 - (IBAction)dismiss:(id)sender
