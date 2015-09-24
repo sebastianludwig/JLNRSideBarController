@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *selectionIndicatorControl;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *inactiveControl;
 @property (weak, nonatomic) IBOutlet UILabel *footnoteLabel;
+@property (weak, nonatomic) IBOutlet UISwitch *hiddenSwitch;
 
 @end
 
@@ -122,6 +123,10 @@
     [JLNRBarCell appearance].inactiveColor = (appearance ? [UIColor brownColor] : nil);
     
     self.footnoteLabel.hidden = NO;
+}
+
+- (IBAction)toggleHidden:(UISwitch *)sender
+{
 }
 
 - (IBAction)dismiss:(id)sender
