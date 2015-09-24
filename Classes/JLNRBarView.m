@@ -118,6 +118,13 @@ static CGFloat const kVerticalItemSpacing = 22;
     return collectionView;
 }
 
+- (void)forEachBar:(void (^)(UICollectionView *collectionView))action
+{
+    for (UICollectionView *collectionView in @[self.leftBar, self.bottomBar]) {
+        action(collectionView);
+    }
+}
+
 - (void)updateConstraints
 {
     [super updateConstraints];
@@ -156,20 +163,18 @@ static CGFloat const kVerticalItemSpacing = 22;
     NSInteger oldIndexPath = _selectedIndex;
     _selectedIndex = selectedIndex;
     
-    for (UICollectionView *collectionView in @[self.leftBar, self.bottomBar]) {
+    [self forEachBar:^(UICollectionView *collectionView) {
         while ([collectionView.indexPathsForSelectedItems count] > 0) {
             NSIndexPath *selection = [[collectionView indexPathsForSelectedItems] firstObject];     // why u no simply for loop?
             [collectionView deselectItemAtIndexPath:selection animated:NO];
         }
-
+        
         NSIndexPath *selection = [NSIndexPath indexPathForItem:selectedIndex inSection:0];
         [collectionView selectItemAtIndexPath:selection animated:NO scrollPosition:UICollectionViewScrollPositionNone];
-    }
-    
-    [UIView performWithoutAnimation:^{
-        for (UICollectionView *collectionView in @[self.leftBar, self.bottomBar]) {
+        
+        [UIView performWithoutAnimation:^{
             [collectionView reloadItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:oldIndexPath inSection:0]]];
-        }
+        }];
     }];
 }
 
@@ -237,17 +242,17 @@ static CGFloat const kVerticalItemSpacing = 22;
 {
     _borderColor = borderColor;
     
-    for (UICollectionView *collectionView in @[self.leftBar, self.bottomBar]) {
+    [self forEachBar:^(UICollectionView *collectionView) {
         JLNRBarBackgroundView *backgroundView = (JLNRBarBackgroundView *)collectionView.backgroundView;
         backgroundView.borderColor = borderColor;
-    }
+    }];
 }
 
 - (void)setBackgroundColor:(UIColor *)backgroundColor
 {
     [super setBackgroundColor:backgroundColor];
 
-    for (UICollectionView *collectionView in @[self.leftBar, self.bottomBar]) {
+    [self forEachBar:^(UICollectionView *collectionView) {
         JLNRBarBackgroundView *backgroundView = (JLNRBarBackgroundView *)collectionView.backgroundView;
         
         if (backgroundColor) {
@@ -256,8 +261,7 @@ static CGFloat const kVerticalItemSpacing = 22;
         else {
             backgroundView.backgroundColor = [UIColor colorWithRed:247.f/255 green:247.f/255 blue:247.f/255 alpha:1];
         }
-
-    }
+    }];
 }
 
 #pragma mark - UICollectionViewDataSource
