@@ -14,6 +14,8 @@
 
 @property (weak, nonatomic) IBOutlet UISlider *contentWidthSlider;
 @property (weak, nonatomic) IBOutlet UILabel *contentWidthLabel;
+@property (weak, nonatomic) IBOutlet UISlider *sideBarWidthSlider;
+@property (weak, nonatomic) IBOutlet UILabel *sideBarWidthLabel;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *backgroundControl;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *borderControl;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *selectionIndicatorControl;
@@ -38,7 +40,12 @@
     CGFloat contentWidth = self.barController.barView.maxContentWidthForBottomBar;
     self.contentWidthSlider.value = contentWidth;
     self.contentWidthLabel.text = [NSString stringWithFormat:@"%@px", @(contentWidth)];
+    CGFloat sideBarWidth = self.barController.barView.sideBarWidth;
+    self.sideBarWidthSlider.value = sideBarWidth;
+    self.sideBarWidthLabel.text = [NSString stringWithFormat:@"%@px", @(sideBarWidth)];
     self.hiddenSwitch.on = self.barController.isBarHidden;
+    
+    self.barController.barView.sideBarWidth = 250;
     
     if ([JLNRBarView appearance].backgroundColor) {
         self.backgroundControl.selectedSegmentIndex = 2;
@@ -80,6 +87,13 @@
     CGFloat contentWidth = round(self.contentWidthSlider.value);
     self.barController.barView.maxContentWidthForBottomBar = contentWidth;
     self.contentWidthLabel.text = [NSString stringWithFormat:@"%@px", @(contentWidth)];
+}
+
+- (IBAction)changeSideBarWidth
+{
+    CGFloat sideBarWidth = round(self.sideBarWidthSlider.value);
+    self.barController.barView.sideBarWidth = sideBarWidth;
+    self.sideBarWidthLabel.text = [NSString stringWithFormat:@"%@px", @(sideBarWidth)];
 }
 
 - (IBAction)changeBackground:(id)sender
