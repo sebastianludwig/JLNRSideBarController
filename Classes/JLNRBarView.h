@@ -23,7 +23,11 @@
 @property (nonatomic, weak) id<JLNRBarViewDelegate> delegate;
 @property (nonatomic) NSInteger selectedIndex;
 
+@property(nonatomic, getter=isBarHidden) BOOL barHidden;
+
 - (void)reloadData;
+
+- (void)setBarHidden:(BOOL)hidden animated:(BOOL)animated;
 
 @end
 

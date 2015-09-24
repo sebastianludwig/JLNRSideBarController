@@ -38,6 +38,7 @@
     CGFloat contentWidth = self.barController.barView.maxContentWidthForBottomBar;
     self.contentWidthSlider.value = contentWidth;
     self.contentWidthLabel.text = [NSString stringWithFormat:@"%@px", @(contentWidth)];
+    self.hiddenSwitch.on = self.barController.isBarHidden;
     
     if ([JLNRBarView appearance].backgroundColor) {
         self.backgroundControl.selectedSegmentIndex = 2;
@@ -127,6 +128,7 @@
 
 - (IBAction)toggleHidden:(UISwitch *)sender
 {
+    [self.barController setBarHidden:sender.on animated:YES];
 }
 
 - (IBAction)dismiss:(id)sender

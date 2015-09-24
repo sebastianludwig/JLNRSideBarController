@@ -37,6 +37,21 @@
 
 #pragma mark - Interaction with the bar view
 
+- (BOOL)isBarHidden
+{
+    return self.barView.isBarHidden;
+}
+
+- (void)setBarHidden:(BOOL)hidden
+{
+    self.barView.barHidden = hidden;
+}
+
+- (void)setBarHidden:(BOOL)hidden animated:(BOOL)animated
+{
+    [self.barView setBarHidden:hidden animated:animated];
+}
+
 - (JLNRBarView *)barView
 {
     return (JLNRBarView *)self.view;
