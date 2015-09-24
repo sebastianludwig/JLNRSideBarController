@@ -64,7 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				D4E81D5C1AEE8DB9006F6502 /* Example */,
-				D4E81D831AEE8E13006F6502 /* JLNRSideBarController */,
+				D4E81D831AEE8E13006F6502 /* JLNRBarController */,
 				D4E81D5B1AEE8DB9006F6502 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -103,7 +103,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		D4E81D831AEE8E13006F6502 /* JLNRSideBarController */ = {
+		D4E81D831AEE8E13006F6502 /* JLNRBarController */ = {
 			isa = PBXGroup;
 			children = (
 				9E300D701BB44F01009603D2 /* JLNRBadgeView.h */,
@@ -119,7 +119,7 @@
 				9E7366021BB489EA00C3F99C /* UIViewController+JLNRBarController.h */,
 				9E7366031BB489EA00C3F99C /* UIViewController+JLNRBarController.m */,
 			);
-			name = JLNRSideBarController;
+			name = JLNRBarController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
