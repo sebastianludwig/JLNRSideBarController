@@ -26,7 +26,7 @@
 
 @implementation StylingViewController
 
-- (JLNRBarController *)menuController
+- (JLNRBarController *)barController
 {
     return (JLNRBarController *)self.navigationController.parentViewController;
 }
@@ -35,14 +35,14 @@
 {
     [super viewWillAppear:animated];
     
-    CGFloat contentWidth = self.menuController.barView.maxContentWidthForBottomBar;
+    CGFloat contentWidth = self.barController.barView.maxContentWidthForBottomBar;
     self.contentWidthSlider.value = contentWidth;
     self.contentWidthLabel.text = [NSString stringWithFormat:@"%@px", @(contentWidth)];
     
     if ([JLNRBarView appearance].backgroundColor) {
         self.backgroundControl.selectedSegmentIndex = 2;
     }
-    else if (self.menuController.barView.backgroundColor) {
+    else if (self.barController.barView.backgroundColor) {
         self.backgroundControl.selectedSegmentIndex = 1;
     }
     else {
@@ -52,7 +52,7 @@
     if ([JLNRBarView appearance].borderColor) {
         self.borderControl.selectedSegmentIndex = 2;
     }
-    else if (self.menuController.barView.borderColor) {
+    else if (self.barController.barView.borderColor) {
         self.borderControl.selectedSegmentIndex = 1;
     }
     else {
@@ -77,7 +77,7 @@
 - (IBAction)changeContentWidth:(id)sender
 {
     CGFloat contentWidth = round(self.contentWidthSlider.value);
-    self.menuController.barView.maxContentWidthForBottomBar = contentWidth;
+    self.barController.barView.maxContentWidthForBottomBar = contentWidth;
     self.contentWidthLabel.text = [NSString stringWithFormat:@"%@px", @(contentWidth)];
 }
 
@@ -86,7 +86,7 @@
     BOOL custom = (self.backgroundControl.selectedSegmentIndex == 1);
     BOOL appearance = (self.backgroundControl.selectedSegmentIndex == 2);
     
-    self.menuController.barView.backgroundColor = (custom ? [UIColor purpleColor] : nil);
+    self.barController.barView.backgroundColor = (custom ? [UIColor purpleColor] : nil);
     [JLNRBarView appearance].backgroundColor = (appearance ? [UIColor yellowColor] : nil);
     
     if (appearance) {
@@ -99,7 +99,7 @@
     BOOL custom = (self.borderControl.selectedSegmentIndex == 1);
     BOOL appearance = (self.borderControl.selectedSegmentIndex == 2);
     
-    self.menuController.barView.borderColor = (custom ? [UIColor greenColor] : nil);
+    self.barController.barView.borderColor = (custom ? [UIColor greenColor] : nil);
     [JLNRBarView appearance].borderColor = (appearance ? [UIColor redColor] : nil);
 
     if (appearance) {
