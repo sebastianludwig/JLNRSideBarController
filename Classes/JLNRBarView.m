@@ -151,7 +151,7 @@ static CGFloat const kVerticalItemSpacing = 22;
         [self layoutIfNeeded];
         [UIView animateWithDuration:0.3
                               delay:0
-                            options:UIViewAnimationOptionBeginFromCurrentState
+                            options:(UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionAllowUserInteraction)
                          animations:^{
                              [weakSelf updateConstraints];
                              [weakSelf layoutIfNeeded];
