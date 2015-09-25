@@ -129,7 +129,7 @@
 
 - (void)setSelectedIndex:(NSInteger)selectedIndex
 {
-    if (selectedIndex < 0 || selectedIndex >= [self.viewControllers count]) {
+    if (selectedIndex < 0 || selectedIndex >= [self.viewControllers count] || selectedIndex == self.selectedIndex || !self.isViewLoaded) {
         return;
     }
     
