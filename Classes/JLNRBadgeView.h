@@ -15,5 +15,10 @@ IB_DESIGNABLE
 @property (nonatomic) IBInspectable UIColor *textColor;
 @property (nonatomic) IBInspectable UIColor *badgeColor;
 
+@property (nonatomic) IBInspectable UIFont *font;
+
+@property (nonatomic) CGFloat IBInspectable horizontalPadding;
+@property (nonatomic) CGFloat IBInspectable verticalPadding;
+
 @end
 

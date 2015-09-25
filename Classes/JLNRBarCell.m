@@ -59,6 +59,9 @@ static CGFloat const kMinimumWidthForHorizontalLayout = 200;
     JLNRBadgeView *badgeView = [[JLNRBadgeView alloc] initWithFrame:CGRectMake(0, 0, 30, 20)];
     badgeView.badgeColor = [UIColor redColor];
     badgeView.textColor = [UIColor whiteColor];
+    badgeView.horizontalPadding = 2;
+    badgeView.verticalPadding = 1;
+    badgeView.font = [UIFont systemFontOfSize:13];
     [self addSubview:badgeView];
     self.badgeView = badgeView;
 }
@@ -136,7 +139,7 @@ static CGFloat const kMinimumWidthForHorizontalLayout = 200;
     CGRect badgeFrame;
     badgeFrame.size = self.badgeView.intrinsicContentSize;
     badgeFrame.origin = CGPointMake(CGRectGetMaxX(self.imageView.frame), CGRectGetMinY(self.imageView.frame));
-    badgeFrame = CGRectOffset(badgeFrame, -badgeFrame.size.width / 2, -badgeFrame.size.height / 2);
+    badgeFrame = CGRectOffset(badgeFrame, -badgeFrame.size.width / 2 + 4, 1);
     self.badgeView.frame = CGRectIntegral(badgeFrame);
 }
 

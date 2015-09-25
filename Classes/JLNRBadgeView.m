@@ -8,8 +8,8 @@
 
 #import "JLNRBadgeView.h"
 
-static CGFloat kHorizontalPadding = 4;
-static CGFloat kVerticalPadding = 3;
+static CGFloat kDefaultHorizontalPadding = 4;
+static CGFloat kDefaultVerticalPadding = 3;
 
 
 @implementation JLNRBadgeView
@@ -35,6 +35,9 @@ static CGFloat kVerticalPadding = 3;
 
 - (void)setupBadgeView
 {
+    _horizontalPadding = kDefaultHorizontalPadding;
+    _verticalPadding = kDefaultVerticalPadding;
+    
     _label = [[UILabel alloc] initWithFrame:self.bounds];
     _label.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     _label.textAlignment = NSTextAlignmentCenter;
@@ -55,8 +58,8 @@ static CGFloat kVerticalPadding = 3;
 - (CGSize)intrinsicContentSize
 {
     CGSize labelSize = _label.intrinsicContentSize;
-    CGFloat height = labelSize.height + 2 * kVerticalPadding;
-    return CGSizeMake(MAX(labelSize.width + 3 * kHorizontalPadding, height), height);
+    CGFloat height = labelSize.height + 2 * self.verticalPadding;
+    return CGSizeMake(MAX(labelSize.width + 3 * self.horizontalPadding, height), height);
 }
 
 - (NSString *)bagdeText
@@ -86,6 +89,16 @@ static CGFloat kVerticalPadding = 3;
 - (void)setTextColor:(UIColor *)textColor
 {
     _label.textColor = textColor;
+}
+
+- (UIFont *)font
+{
+    return _label.font;
+}
+
+- (void)setFont:(UIFont *)font
+{
+    _label.font = font;
 }
 
 @end
