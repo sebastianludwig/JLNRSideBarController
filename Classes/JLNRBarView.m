@@ -149,10 +149,13 @@ static CGFloat const kVerticalItemSpacing = 22;
     __weak typeof(self)weakSelf = self;
     if (animated) {
         [self layoutIfNeeded];
-        [UIView animateWithDuration:0.3 animations:^{
-            [weakSelf updateConstraints];
-            [weakSelf layoutIfNeeded];
-        }];
+        [UIView animateWithDuration:0.3
+                              delay:0
+                            options:UIViewAnimationOptionBeginFromCurrentState
+                         animations:^{
+                             [weakSelf updateConstraints];
+                             [weakSelf layoutIfNeeded];
+                         } completion:nil];
     } else {
         [weakSelf setNeedsUpdateConstraints];
     }
