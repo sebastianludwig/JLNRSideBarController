@@ -139,7 +139,7 @@
 
 - (IBAction)toggleHidden:(UISwitch *)sender
 {
-    [self.jlnrBarController setBottomBarHidden:sender.on animated:YES];
+    [self.jlnrBarController setBarHidden:sender.on animated:YES];
 }
 
 - (IBAction)incrementBadgeValue
