@@ -18,11 +18,18 @@
         JLNRBarController *destination = segue.destinationViewController;
         
         NSMutableArray *viewControllers = [NSMutableArray new];
+        NSArray *colors = @[
+                            [UIColor colorWithRed:0.9659 green:0.5166 blue:0.5427 alpha:1.0],
+                            [UIColor colorWithRed:0.607 green:1.0 blue:0.6777 alpha:1.0],
+                            [UIColor colorWithRed:0.6994 green:0.8845 blue:0.9994 alpha:1.0],
+                            [UIColor colorWithRed:0.9775 green:1.0 blue:0.6052 alpha:1.0]
+                            ];
         for (NSInteger i = 1; i <= 4; ++i) {
             NSString *identifier = [NSString stringWithFormat:@"Tab%@", @(i)];
             UINavigationController *navigationController = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
-            UIViewController *dummyViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"StylingViewController"];
-            navigationController.viewControllers = @[dummyViewController];
+            UIViewController *stylingViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"StylingViewController"];
+            stylingViewController.view.backgroundColor = colors[i - 1];
+            navigationController.viewControllers = @[stylingViewController];
             [viewControllers addObject:navigationController];
         }
         
