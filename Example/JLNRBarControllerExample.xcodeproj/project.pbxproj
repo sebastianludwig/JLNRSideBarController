@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9E300D721BB44F01009603D2 /* JLNRBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E300D711BB44F01009603D2 /* JLNRBadgeView.m */; settings = {ASSET_TAGS = (); }; };
 		9E3462F61BBD43F400BFA892 /* Animator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E3462F51BBD43F400BFA892 /* Animator.m */; settings = {ASSET_TAGS = (); }; };
+		9E3462F91BBD64B400BFA892 /* JLNRBackdropSlideAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E3462F81BBD64B400BFA892 /* JLNRBackdropSlideAnimator.m */; settings = {ASSET_TAGS = (); }; };
 		9E7366041BB489EA00C3F99C /* UIViewController+JLNRBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7366031BB489EA00C3F99C /* UIViewController+JLNRBarController.m */; settings = {ASSET_TAGS = (); }; };
 		9EFA5C7C1BB59530000DBAFC /* JLNRBarTransitionContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EFA5C7B1BB59530000DBAFC /* JLNRBarTransitionContext.m */; settings = {ASSET_TAGS = (); }; };
 		D4121E601AF17475002C6A7B /* JLNRBarBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4121E591AF17475002C6A7B /* JLNRBarBackgroundView.m */; };
@@ -29,6 +30,8 @@
 		9E300D711BB44F01009603D2 /* JLNRBadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JLNRBadgeView.m; path = ../Classes/JLNRBadgeView.m; sourceTree = "<group>"; };
 		9E3462F41BBD43F400BFA892 /* Animator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Animator.h; sourceTree = "<group>"; };
 		9E3462F51BBD43F400BFA892 /* Animator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Animator.m; sourceTree = "<group>"; };
+		9E3462F71BBD64B400BFA892 /* JLNRBackdropSlideAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JLNRBackdropSlideAnimator.h; path = ../Classes/JLNRBackdropSlideAnimator.h; sourceTree = "<group>"; };
+		9E3462F81BBD64B400BFA892 /* JLNRBackdropSlideAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JLNRBackdropSlideAnimator.m; path = ../Classes/JLNRBackdropSlideAnimator.m; sourceTree = "<group>"; };
 		9E7366021BB489EA00C3F99C /* UIViewController+JLNRBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+JLNRBarController.h"; path = "../Classes/UIViewController+JLNRBarController.h"; sourceTree = "<group>"; };
 		9E7366031BB489EA00C3F99C /* UIViewController+JLNRBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+JLNRBarController.m"; path = "../Classes/UIViewController+JLNRBarController.m"; sourceTree = "<group>"; };
 		9EFA5C7A1BB59530000DBAFC /* JLNRBarTransitionContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JLNRBarTransitionContext.h; path = ../Classes/JLNRBarTransitionContext.h; sourceTree = "<group>"; };
@@ -114,6 +117,8 @@
 		D4E81D831AEE8E13006F6502 /* JLNRBarController */ = {
 			isa = PBXGroup;
 			children = (
+				9E3462F71BBD64B400BFA892 /* JLNRBackdropSlideAnimator.h */,
+				9E3462F81BBD64B400BFA892 /* JLNRBackdropSlideAnimator.m */,
 				9E300D701BB44F01009603D2 /* JLNRBadgeView.h */,
 				9E300D711BB44F01009603D2 /* JLNRBadgeView.m */,
 				D4121E581AF17475002C6A7B /* JLNRBarBackgroundView.h */,
@@ -210,6 +215,7 @@
 				9E300D721BB44F01009603D2 /* JLNRBadgeView.m in Sources */,
 				D4E81D631AEE8DB9006F6502 /* AppDelegate.m in Sources */,
 				D4E81D601AEE8DB9006F6502 /* main.m in Sources */,
+				9E3462F91BBD64B400BFA892 /* JLNRBackdropSlideAnimator.m in Sources */,
 				9E3462F61BBD43F400BFA892 /* Animator.m in Sources */,
 				D4121E621AF17475002C6A7B /* JLNRBarView.m in Sources */,
 				D4121E631AF17475002C6A7B /* JLNRBarController.m in Sources */,

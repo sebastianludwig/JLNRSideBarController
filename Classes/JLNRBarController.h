@@ -11,6 +11,7 @@
 // Let this header function as an umbrella header.
 #import "JLNRBarCell.h"
 #import "JLNRBarView.h"
+#import "JLNRBackdropSlideAnimator.h"
 #import "UIViewController+JLNRBarController.h"
 
 
