@@ -291,7 +291,7 @@ static CGFloat const kVerticalItemSpacing = 22;
 
 #pragma mark - UICollectionViewDelegate
 
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+- (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath
 {
     [self.delegate barView:self didSelectIndex:indexPath.item];
     self.selectedIndex = indexPath.item;
@@ -331,6 +331,11 @@ static CGFloat const kVerticalItemSpacing = 22;
 }
 
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return [_delegate barView:self shouldSelectIndex:indexPath.item];
+}
+
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath
 {
     return [_delegate barView:self shouldSelectIndex:indexPath.item];
 }
