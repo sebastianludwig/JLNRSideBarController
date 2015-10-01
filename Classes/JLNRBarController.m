@@ -194,7 +194,7 @@
 
 - (void)setSelectedIndex:(NSInteger)selectedIndex
 {
-    if (selectedIndex < 0 || selectedIndex >= [self.viewControllers count] || (selectedIndex == self.selectedIndex && [self tabHasEverBeenSelected]) || !self.isViewLoaded) {
+    if (selectedIndex < 0 || selectedIndex >= self.viewControllers.count || (selectedIndex == self.selectedIndex && [self tabHasEverBeenSelected]) || !self.isViewLoaded) {
         return;
     }
     
@@ -217,6 +217,9 @@
 
 - (UIViewController *)selectedViewController
 {
+    if (self.selectedIndex < 0 || self.selectedIndex > self.viewControllers.count) {
+        return nil;
+    }
     return self.viewControllers[self.selectedIndex];
 }
 

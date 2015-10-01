@@ -59,6 +59,7 @@ static CGFloat const kVerticalItemSpacing = 22;
     
     self.barHidden = NO;
     
+    _selectedIndex = NSNotFound;
     _maxContentWidthForBottomBar = kDefaultMaxContentWidthForBottomBar;
     _sideBarWidth = kDefaultLeftBarWidth;
     
@@ -163,7 +164,10 @@ static CGFloat const kVerticalItemSpacing = 22;
 
 - (void)setSelectedIndex:(NSInteger)selectedIndex
 {
-    NSInteger oldIndexPath = _selectedIndex;
+    if (selectedIndex == _selectedIndex) {
+        return;
+    }
+    NSInteger oldIndex = _selectedIndex;
     _selectedIndex = selectedIndex;
     
     [self forEachBar:^(UICollectionView *collectionView) {
@@ -172,9 +176,11 @@ static CGFloat const kVerticalItemSpacing = 22;
         NSIndexPath *selection = [NSIndexPath indexPathForItem:selectedIndex inSection:0];
         [collectionView selectItemAtIndexPath:selection animated:NO scrollPosition:UICollectionViewScrollPositionNone];
         
-        [UIView performWithoutAnimation:^{
-            [collectionView reloadItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:oldIndexPath inSection:0]]];
-        }];
+        if (oldIndex != NSNotFound && [self collectionView:collectionView numberOfItemsInSection:0] < oldIndex) {
+            [UIView performWithoutAnimation:^{
+                [collectionView reloadItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:oldIndex inSection:0]]];
+            }];
+        }
     }];
 }
 
