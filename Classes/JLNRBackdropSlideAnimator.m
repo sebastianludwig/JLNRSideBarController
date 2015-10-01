@@ -31,7 +31,7 @@
     toView.frame = [transitionContext initialFrameForViewController:toViewController];
     toView.transform = scale;
     
-    [UIView animateKeyframesWithDuration:[self transitionDuration:transitionContext] delay:0 options:0 animations:^{
+    [UIView animateKeyframesWithDuration:[self transitionDuration:transitionContext] delay:0 options:UIViewKeyframeAnimationOptionAllowUserInteraction animations:^{
         [UIView addKeyframeWithRelativeStartTime:0 relativeDuration:0.1 animations:^{
             fromView.transform = scale;
         }];
