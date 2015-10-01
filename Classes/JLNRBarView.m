@@ -62,14 +62,14 @@ static CGFloat const kVerticalItemSpacing = 22;
     _maxContentWidthForBottomBar = kDefaultMaxContentWidthForBottomBar;
     _sideBarWidth = kDefaultLeftBarWidth;
     
-    self.leftBar = [self createCollectionView];
-    self.bottomBar = [self createCollectionView];
-    
     UIView *contentView = [UIView new];
     contentView.translatesAutoresizingMaskIntoConstraints = NO;
     [self addSubview:contentView];
     self.contentView = contentView;
 
+    self.leftBar = [self createCollectionView];
+    self.bottomBar = [self createCollectionView];
+    
     [self addConstraints:@"H:|-0-[bottomBar]-0-|" toView:self];
     [self addConstraints:@"V:|-0-[leftBar]-0-|" toView:self];
     [self addConstraints:@"H:[leftBar]-0-[contentView]-0-|" toView:self];
