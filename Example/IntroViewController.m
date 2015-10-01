@@ -35,6 +35,7 @@
         }
         
         destination.viewControllers = viewControllers;
+        destination.selectedIndex = 2;
     }
 }
 
