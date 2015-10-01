@@ -137,7 +137,11 @@
     
     [fromViewController willMoveToParentViewController:nil];
     [self addChildViewController:toViewController];
-    toViewController.view.frame = self.barView.contentView.bounds;      // TODO: update constraints / ensure it's resizing mask is set (and translates... to YES)
+    
+    toViewController.view.translatesAutoresizingMaskIntoConstraints = YES;
+    toViewController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    
+    toViewController.view.frame = self.barView.contentView.bounds;
     
     if (![self tabHasEverBeenSelected]) {
         [self.barView.contentView addSubview:toViewController.view];
