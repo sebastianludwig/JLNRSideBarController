@@ -14,7 +14,11 @@
 #import "UIViewController+JLNRBarController.h"
 
 
+@protocol JLNRBarControllerDelegate;
+
 @interface JLNRBarController : UIViewController
+
+@property (nonatomic, weak) id<JLNRBarControllerDelegate> delegate;
 
 @property (nonatomic, copy) NSArray *viewControllers;
 @property (nonatomic, weak) UIViewController *selectedViewController;
@@ -30,4 +34,10 @@
 - (void)setBottomBarHidden:(BOOL)hidden animated:(BOOL)animated;
 - (void)setSideBarHidden:(BOOL)hidden animated:(BOOL)animated;
 
+@end
+
+@protocol JLNRBarControllerDelegate <NSObject>
+@optional
+- (void)barController:(JLNRBarController *)barController didSelectViewController:(UIViewController *)viewController;
+- (id <UIViewControllerAnimatedTransitioning>)barController:(JLNRBarController *)barController animationControllerForTransitionFromViewController:(UIViewController *)fromViewController toViewController:(UIViewController *)toViewController;
 @end

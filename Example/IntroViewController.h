@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JLNRBarController.h"
 
-@interface IntroViewController : UIViewController
+
+@interface IntroViewController : UIViewController <JLNRBarControllerDelegate>
 
 
 @end

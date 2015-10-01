@@ -40,6 +40,7 @@
 
 - (NSInteger)numberOfTabBarItemsForBarView:(JLNRBarView *)barView;
 - (UITabBarItem *)barView:(JLNRBarView *)barView tabBarItemForIndex:(NSInteger)index;
+- (BOOL)barView:(JLNRBarView *)barView shouldSelectIndex:(NSInteger)index;
 - (void)barView:(JLNRBarView *)barView didSelectIndex:(NSInteger)selectedIndex;
 
 @end

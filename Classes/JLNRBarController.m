@@ -7,6 +7,7 @@
 //
 
 #import "JLNRBarController.h"
+#import "JLNRBarTransitionContext.h"
 
 
 @interface JLNRBarController () <JLNRBarViewDelegate>
@@ -15,6 +16,9 @@
 
 
 @implementation JLNRBarController
+{
+    BOOL _transitionInProgress;
+}
 
 #pragma mark - UIViewController
 
@@ -127,26 +131,84 @@
     return self.barView.selectedIndex;
 }
 
-- (void)setSelectedIndex:(NSInteger)selectedIndex
+- (void)transitionFromViewController:(UIViewController *)fromViewController toViewController:(UIViewController *)toViewController goingRight:(BOOL)goingRight
 {
-    if (selectedIndex < 0 || selectedIndex >= [self.viewControllers count] || selectedIndex == self.selectedIndex || !self.isViewLoaded) {
+    _transitionInProgress = YES;
+    
+    [fromViewController willMoveToParentViewController:nil];
+    [self addChildViewController:toViewController];
+    toViewController.view.frame = self.barView.contentView.bounds;      // TODO: update constraints / ensure it's resizing mask is set (and translates... to YES)
+    
+    if (![self tabHasEverBeenSelected]) {
+        [self.barView.contentView addSubview:toViewController.view];
+        [toViewController didMoveToParentViewController:self];
+        
+        [self setNeedsStatusBarAppearanceUpdate];
+        
+        _transitionInProgress = NO;
         return;
     }
     
+    
+    
+    id<UIViewControllerAnimatedTransitioning> animator;
+    if ([self.delegate respondsToSelector:@selector(barController:animationControllerForTransitionFromViewController:toViewController:)]) {
+        animator = [self.delegate barController:self animationControllerForTransitionFromViewController:fromViewController toViewController:toViewController];
+    }
+    
+    void (^transitionCompletion)(BOOL) = ^void(BOOL didComplete) {
+        [fromViewController.view removeFromSuperview];
+        [fromViewController removeFromParentViewController];
+        
+        [toViewController didMoveToParentViewController:self];
+        
+        [self setNeedsStatusBarAppearanceUpdate];
+        
+        if ([animator respondsToSelector:@selector(animationEnded:)]) {
+            [animator animationEnded:didComplete];
+        }
+        _transitionInProgress = NO;
+    };
+    
+    
+    if (animator) {
+        JLNRBarTransitionContext *transitionContext = [[JLNRBarTransitionContext alloc] initWithFromViewController:fromViewController
+                                                                                                  toViewController:toViewController
+                                                                                                     containerView:self.barView.contentView
+                                                                                                        goingRight:goingRight];
+        transitionContext.animated = YES;
+        transitionContext.interactive = NO;
+        transitionContext.completionBlock = transitionCompletion;
+        
+        
+        [animator animateTransition:transitionContext];
+    } else {
+        [self.barView.contentView addSubview:toViewController.view];
+        transitionCompletion(YES);
+    }
+}
+
+- (void)setSelectedIndex:(NSInteger)selectedIndex
+{
+    if (selectedIndex < 0 || selectedIndex >= [self.viewControllers count] || (selectedIndex == self.selectedIndex && [self tabHasEverBeenSelected]) || !self.isViewLoaded) {
+        return;
+    }
+    
+    if (_transitionInProgress) {
+        return;
+    }
+    
+    BOOL goingRight = selectedIndex > self.selectedIndex;
+    
     UIViewController *oldViewController = [self selectedViewController];
-    [oldViewController willMoveToParentViewController:nil];
-    [oldViewController.view removeFromSuperview];
-    [oldViewController removeFromParentViewController];
-    
     self.barView.selectedIndex = selectedIndex;
-    
     UIViewController *newViewController = [self selectedViewController];
-    [self addChildViewController:newViewController];
-    newViewController.view.frame = self.barView.contentView.bounds;
-    [self.barView.contentView addSubview:newViewController.view];
-    [newViewController didMoveToParentViewController:self];
     
-    [self setNeedsStatusBarAppearanceUpdate];
+    [self transitionFromViewController:oldViewController toViewController:newViewController goingRight:goingRight];
+    
+    if ([self.delegate respondsToSelector:@selector(barController:didSelectViewController:)]) {
+        [self.delegate barController:self didSelectViewController:newViewController];
+    }
 }
 
 - (UIViewController *)selectedViewController
@@ -236,6 +298,11 @@
 {
     UIViewController *viewController = self.viewControllers[index];
     return viewController.tabBarItem;
+}
+
+- (BOOL)barView:(JLNRBarView *)barView shouldSelectIndex:(NSInteger)index
+{
+    return !_transitionInProgress;
 }
 
 - (void)barView:(JLNRBarView *)barView didSelectIndex:(NSInteger)selectedIndex

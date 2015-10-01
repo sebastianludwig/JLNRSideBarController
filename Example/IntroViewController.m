@@ -7,7 +7,7 @@
 //
 
 #import "IntroViewController.h"
-#import "JLNRBarController.h"
+#import "Animator.h"
 
 
 @implementation IntroViewController
@@ -16,6 +16,7 @@
 {
     if ([segue.identifier isEqualToString:@"UnstyledDemo"]) {
         JLNRBarController *destination = segue.destinationViewController;
+        destination.delegate = self;
         
         NSMutableArray *viewControllers = [NSMutableArray new];
         NSArray *colors = @[
@@ -35,6 +36,14 @@
         
         destination.viewControllers = viewControllers;
     }
+}
+
+#pragma mark - JLNRBarControllerDelegate
+
+- (id <UIViewControllerAnimatedTransitioning>)barController:(JLNRBarController *)barController animationControllerForTransitionFromViewController:(UIViewController *)fromViewController toViewController:(UIViewController *)toViewController
+{
+    return [[Animator alloc] init];
+//    return nil; // to disable animations
 }
 
 @end

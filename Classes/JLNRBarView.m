@@ -322,6 +322,11 @@ static CGFloat const kVerticalItemSpacing = 22;
     }
 }
 
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return [_delegate barView:self shouldSelectIndex:indexPath.item];
+}
+
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldDeselectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     return NO;
