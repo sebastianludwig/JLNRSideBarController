@@ -171,12 +171,14 @@ static CGFloat const kVerticalItemSpacing = 22;
     _selectedIndex = selectedIndex;
     
     [self forEachBar:^(UICollectionView *collectionView) {
-        [collectionView deselectItemAtIndexPath:[[collectionView indexPathsForSelectedItems] firstObject] animated:NO];
+        if (oldIndex < [self collectionView:collectionView numberOfItemsInSection:0]) {
+            [collectionView deselectItemAtIndexPath:[NSIndexPath indexPathForItem:oldIndex inSection:0] animated:NO];
+        }
         
         NSIndexPath *selection = [NSIndexPath indexPathForItem:selectedIndex inSection:0];
         [collectionView selectItemAtIndexPath:selection animated:NO scrollPosition:UICollectionViewScrollPositionNone];
         
-        if (oldIndex != NSNotFound && [self collectionView:collectionView numberOfItemsInSection:0] < oldIndex) {
+        if (oldIndex < [self collectionView:collectionView numberOfItemsInSection:0]) {
             [UIView performWithoutAnimation:^{
                 [collectionView reloadItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:oldIndex inSection:0]]];
             }];
