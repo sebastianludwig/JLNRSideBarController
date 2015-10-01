@@ -42,8 +42,9 @@
 
 - (id <UIViewControllerAnimatedTransitioning>)barController:(JLNRBarController *)barController animationControllerForTransitionFromViewController:(UIViewController *)fromViewController toViewController:(UIViewController *)toViewController
 {
-    return [[Animator alloc] init];
+//    return [[Animator alloc] init];
 //    return nil; // to disable animations
+    return [JLNRBackdropSlideAnimator new];
 }
 
 @end
