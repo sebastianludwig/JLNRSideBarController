@@ -70,7 +70,7 @@ static CGFloat kDefaultVerticalPadding = 3;
 - (void)setBadgeText:(NSString *)badgeText
 {
     _label.text = badgeText;
-    self.hidden = !_label.text || _label.text.length == 0;
+    self.hidden = _label.text.length == 0;
     [self invalidateIntrinsicContentSize];
     [self setNeedsDisplay];
 }
