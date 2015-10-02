@@ -312,7 +312,7 @@
     return !_transitionInProgress;
 }
 
-- (void)barView:(JLNRBarView *)barView didSelectIndex:(NSInteger)selectedIndex
+- (void)barView:(JLNRBarView *)barView willSelectIndex:(NSInteger)selectedIndex
 {
     self.selectedIndex = selectedIndex;
 }
