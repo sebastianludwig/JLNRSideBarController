@@ -36,10 +36,9 @@
     self.contentWidthSlider.value = contentWidth;
     self.contentWidthLabel.text = [NSString stringWithFormat:@"%@px", @(contentWidth)];
     
-    CGFloat sideBarWidth = 250;
-    self.jlnrBarController.barView.sideBarWidth = sideBarWidth;
-    self.sideBarWidthSlider.value = sideBarWidth;
-    self.sideBarWidthLabel.text = [NSString stringWithFormat:@"%@px", @(sideBarWidth)];
+    
+    self.sideBarWidthSlider.value = self.jlnrBarController.barView.sideBarWidth;
+    self.sideBarWidthLabel.text = [NSString stringWithFormat:@"%@px", @(self.sideBarWidthSlider.value)];
     self.hiddenSwitch.on = self.jlnrBarController.isBarHidden;
     
     
