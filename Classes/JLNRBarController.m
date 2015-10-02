@@ -12,13 +12,12 @@
 
 @interface JLNRBarController () <JLNRBarViewDelegate>
 
+@property (getter=isTransitionInProgress) BOOL transitionInProgress;
+
 @end
 
 
 @implementation JLNRBarController
-{
-    BOOL _transitionInProgress;
-}
 
 #pragma mark - UIViewController
 
@@ -133,7 +132,7 @@
 
 - (void)transitionFromViewController:(UIViewController *)fromViewController toViewController:(UIViewController *)toViewController goingRight:(BOOL)goingRight
 {
-    _transitionInProgress = YES;
+    self.transitionInProgress = YES;
     
     [fromViewController willMoveToParentViewController:nil];
     [self addChildViewController:toViewController];
@@ -149,7 +148,7 @@
         
         [self setNeedsStatusBarAppearanceUpdate];
         
-        _transitionInProgress = NO;
+        self.transitionInProgress = NO;
         return;
     }
     
@@ -171,7 +170,7 @@
         if ([animator respondsToSelector:@selector(animationEnded:)]) {
             [animator animationEnded:didComplete];
         }
-        _transitionInProgress = NO;
+        self.transitionInProgress = NO;
     };
     
     
@@ -198,7 +197,7 @@
         return;
     }
     
-    if (_transitionInProgress) {
+    if (self.transitionInProgress) {
         return;
     }
     
@@ -309,7 +308,7 @@
 
 - (BOOL)barView:(JLNRBarView *)barView shouldSelectIndex:(NSInteger)index
 {
-    return !_transitionInProgress;
+    return !self.transitionInProgress;
 }
 
 - (void)barView:(JLNRBarView *)barView willSelectIndex:(NSInteger)selectedIndex
