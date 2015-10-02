@@ -48,28 +48,6 @@
         toView.frame = [transitionContext finalFrameForViewController:toViewController];
         [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
     }];
-    
-    
-    
-//    // When sliding the views horizontally, in and out, figure out whether we are going left or right.
-//    BOOL goingRight = ([transitionContext initialFrameForViewController:toViewController].origin.x < [transitionContext finalFrameForViewController:toViewController].origin.x);
-//    
-//    CGFloat travelDistance = transitionContext.containerView.bounds.size.width;
-//    CGAffineTransform travel = CGAffineTransformMakeTranslation(goingRight ? travelDistance : -travelDistance, 0);
-//    
-//    [[transitionContext containerView] addSubview:toViewController.view];
-//    toViewController.view.alpha = 0;
-//    toViewController.view.transform = CGAffineTransformInvert(travel);
-//    
-//    [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 usingSpringWithDamping:kDamping initialSpringVelocity:kInitialSpringVelocity options:0x00 animations:^{
-//        fromViewController.view.transform = travel;
-//        fromViewController.view.alpha = 0;
-//        toViewController.view.transform = CGAffineTransformIdentity;
-//        toViewController.view.alpha = 1;
-//    } completion:^(BOOL finished) {
-//        fromViewController.view.transform = CGAffineTransformIdentity;
-//        [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
-//    }];
 }
 
 @end
