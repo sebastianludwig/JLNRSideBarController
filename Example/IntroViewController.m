@@ -12,6 +12,14 @@
 
 @implementation IntroViewController
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    // Dev speed: save one click on each execution...
+    [self performSegueWithIdentifier:@"UnstyledDemo" sender:self];
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"UnstyledDemo"]) {
