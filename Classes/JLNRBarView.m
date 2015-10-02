@@ -293,7 +293,7 @@ static CGFloat const kVerticalItemSpacing = 22;
 
 - (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self.delegate barView:self didSelectIndex:indexPath.item];
+    [self.delegate barView:self willSelectIndex:indexPath.item];
     self.selectedIndex = indexPath.item;
 }
 
