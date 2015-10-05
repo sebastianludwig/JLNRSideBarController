@@ -156,7 +156,7 @@ static CGFloat const kMinimumWidthForHorizontalLayout = 200;
 {
     [super setHighlighted:highlighted];
     
-    self.imageView.highlighted = highlighted;
+    self.imageView.highlighted = highlighted || self.selected;
     
     [self updateColors];
 }
@@ -165,7 +165,7 @@ static CGFloat const kMinimumWidthForHorizontalLayout = 200;
 {
     [super setSelected:selected];
     
-    self.imageView.highlighted = selected;
+    self.imageView.highlighted = selected || self.highlighted;
     
     [self updateColors];
 }
